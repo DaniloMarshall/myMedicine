@@ -14,6 +14,12 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        SharedServices.CheckSavedData()
+        var symptomsList = SharedServices.RetrieveSavedSymptoms()
+        
+        for symptom in symptomsList {
+            println(symptom.name)
+        }
     }
 
     override func didReceiveMemoryWarning() {

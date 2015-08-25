@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6CD1B8CABFE0019D28D /* Specialist.swift */; };
+		7640C6D01B8CF1E30019D28D /* airSalompas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */; };
 		76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E3E1B8B62D70065FA1C /* DatabaseManager.swift */; };
 		76E08E421B8B633B0065FA1C /* MyMedicine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E401B8B633B0065FA1C /* MyMedicine.xcdatamodeld */; };
 		76E08E491B8BFF0F0065FA1C /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E481B8BFF0F0065FA1C /* Symptom.swift */; };
-		76E08E4B1B8BFF0F0065FA1C /* Specialist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E4A1B8BFF0F0065FA1C /* Specialist.swift */; };
 		76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E4C1B8C08690065FA1C /* SpecialistDAO.swift */; };
 		76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E4E1B8C08980065FA1C /* SymptomDAO.swift */; };
 		76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E501B8C08B10065FA1C /* MedicineDAO.swift */; };
@@ -43,10 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7640C6CD1B8CABFE0019D28D /* Specialist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Specialist.swift; path = Persistence/VO/Specialist.swift; sourceTree = "<group>"; };
+		7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = airSalompas.pdf; sourceTree = "<group>"; };
 		76E08E3E1B8B62D70065FA1C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = Persistence/DatabaseManager.swift; sourceTree = "<group>"; };
 		76E08E411B8B633B0065FA1C /* MyMedicine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMedicine.xcdatamodel; sourceTree = "<group>"; };
 		76E08E481B8BFF0F0065FA1C /* Symptom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Symptom.swift; path = Persistence/VO/Symptom.swift; sourceTree = "<group>"; };
-		76E08E4A1B8BFF0F0065FA1C /* Specialist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Specialist.swift; path = Persistence/VO/Specialist.swift; sourceTree = "<group>"; };
 		76E08E4C1B8C08690065FA1C /* SpecialistDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecialistDAO.swift; path = Persistence/DAO/SpecialistDAO.swift; sourceTree = "<group>"; };
 		76E08E4E1B8C08980065FA1C /* SymptomDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SymptomDAO.swift; path = Persistence/DAO/SymptomDAO.swift; sourceTree = "<group>"; };
 		76E08E501B8C08B10065FA1C /* MedicineDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicineDAO.swift; path = Persistence/DAO/MedicineDAO.swift; sourceTree = "<group>"; };
@@ -104,8 +106,8 @@
 		76E08E431B8BEEE10065FA1C /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				7640C6CD1B8CABFE0019D28D /* Specialist.swift */,
 				76E08E5A1B8C8C080065FA1C /* Medicine.swift */,
-				76E08E4A1B8BFF0F0065FA1C /* Specialist.swift */,
 				76E08E481B8BFF0F0065FA1C /* Symptom.swift */,
 			);
 			name = VO;
@@ -167,6 +169,7 @@
 		76E65C671B821A4300311F20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */,
 				76E65C681B821A4300311F20 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -302,6 +305,7 @@
 				76E65C6F1B821A4300311F20 /* Main.storyboard in Resources */,
 				76E65C741B821A4300311F20 /* LaunchScreen.xib in Resources */,
 				76E65C711B821A4300311F20 /* Images.xcassets in Resources */,
+				7640C6D01B8CF1E30019D28D /* airSalompas.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,12 +332,12 @@
 				76E08E551B8C11720065FA1C /* SymptomServices.swift in Sources */,
 				76E08E491B8BFF0F0065FA1C /* Symptom.swift in Sources */,
 				76E65C6A1B821A4300311F20 /* AppDelegate.swift in Sources */,
+				7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */,
 				76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */,
 				76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */,
 				76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */,
 				76E08E5B1B8C8C080065FA1C /* Medicine.swift in Sources */,
 				76E08E591B8C84200065FA1C /* SharedServices.swift in Sources */,
-				76E08E4B1B8BFF0F0065FA1C /* Specialist.swift in Sources */,
 				76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */,
 				76E08E571B8C118D0065FA1C /* MedicineServices.swift in Sources */,
 				76E08E531B8C112E0065FA1C /* SpecialistServices.swift in Sources */,
