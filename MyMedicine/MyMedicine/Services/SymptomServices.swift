@@ -15,16 +15,31 @@ class SymptomServices {
     Used to add a symptom to database
     
     :param: name            String with name of symptom
+    :param: description     String with description of symptom
     
     :returns: nil
     */
-    static func createSymptom(name:String)
+    static func createSymptom(name:String, description:String)
     {
         var symptom : Symptom = Symptom()
         symptom.name = name
+        symptom.descriptionTxt = description
         
         // insert it
         SymptomDAO.insert(symptom)
+    }
+    
+    /**
+    Used to add a specialist to a symptom
+    
+    :param: symptom         Symptom that a specialist treats
+    :param: specialist      Specialist that treats the symptom
+    
+    :returns: nil
+    */
+    static func addSymptom(symptom:Symptom, specialist:Specialist)
+    {
+        symptom.addSpecialistObject(specialist)
     }
     
     /**
