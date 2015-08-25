@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Medicine" representedClassName="MyMedicine.Medicine" syncable="YES">
+        <attribute name="adverseEffects" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="contraindication" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionSummary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="informationLeaflet" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="posology" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="relatedMeds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="relatedMeds" inverseEntity="Medicine" syncable="YES"/>
+    </entity>
+    <entity name="Specialist" representedClassName="MyMedicine.Specialist" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Symptom" inverseName="specialists" inverseEntity="Symptom" syncable="YES"/>
+    </entity>
+    <entity name="Symptom" representedClassName="MyMedicine.Symptom" syncable="YES">
+        <attribute name="descriptionTxt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="specialists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Specialist" inverseName="symptoms" inverseEntity="Specialist" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Medicine" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Symptom" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="Specialist" positionX="-36" positionY="27" width="128" height="75"/>
+    </elements>
+</model>
