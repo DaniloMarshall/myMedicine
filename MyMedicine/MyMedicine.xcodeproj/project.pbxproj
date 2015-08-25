@@ -189,14 +189,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		779F1B801B8BF7F800E4763D /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				76E65C691B821A4300311F20 /* AppDelegate.swift */,
-			);
-			name = Delegate;
-			sourceTree = "<group>";
-		};
 		779F1B811B8BF80100E4763D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +467,7 @@
 				INFOPLIST_FILE = MyMedicine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -485,6 +478,7 @@
 				INFOPLIST_FILE = MyMedicine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
