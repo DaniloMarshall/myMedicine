@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6CD1B8CABFE0019D28D /* Specialist.swift */; };
 		7640C6D01B8CF1E30019D28D /* airSalompas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */; };
+		7640C6D31B8D64FE0019D28D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6D21B8D64FE0019D28D /* SwiftyJSON.swift */; };
+		7640C6D51B8D65A70019D28D /* medbase.json in Resources */ = {isa = PBXBuildFile; fileRef = 7640C6D41B8D65A70019D28D /* medbase.json */; };
 		76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E3E1B8B62D70065FA1C /* DatabaseManager.swift */; };
 		76E08E421B8B633B0065FA1C /* MyMedicine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E401B8B633B0065FA1C /* MyMedicine.xcdatamodeld */; };
 		76E08E491B8BFF0F0065FA1C /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E481B8BFF0F0065FA1C /* Symptom.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		7640C6CD1B8CABFE0019D28D /* Specialist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Specialist.swift; path = Persistence/VO/Specialist.swift; sourceTree = "<group>"; };
 		7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = airSalompas.pdf; sourceTree = "<group>"; };
+		7640C6D21B8D64FE0019D28D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		7640C6D41B8D65A70019D28D /* medbase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medbase.json; sourceTree = "<group>"; };
 		76E08E3E1B8B62D70065FA1C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = Persistence/DatabaseManager.swift; sourceTree = "<group>"; };
 		76E08E411B8B633B0065FA1C /* MyMedicine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMedicine.xcdatamodel; sourceTree = "<group>"; };
 		76E08E481B8BFF0F0065FA1C /* Symptom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Symptom.swift; path = Persistence/VO/Symptom.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 		76E65C671B821A4300311F20 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7640C6D41B8D65A70019D28D /* medbase.json */,
+				7640C6D21B8D64FE0019D28D /* SwiftyJSON.swift */,
 				7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */,
 				76E65C681B821A4300311F20 /* Info.plist */,
 			);
@@ -305,6 +311,7 @@
 				76E65C6F1B821A4300311F20 /* Main.storyboard in Resources */,
 				76E65C741B821A4300311F20 /* LaunchScreen.xib in Resources */,
 				76E65C711B821A4300311F20 /* Images.xcassets in Resources */,
+				7640C6D51B8D65A70019D28D /* medbase.json in Resources */,
 				7640C6D01B8CF1E30019D28D /* airSalompas.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +333,7 @@
 				779F1B8F1B8BFFA200E4763D /* CalendarViewController.swift in Sources */,
 				779F1B911B8BFFE100E4763D /* RegisterViewController.swift in Sources */,
 				779F1B951B8C04A200E4763D /* ReminderViewController.swift in Sources */,
+				7640C6D31B8D64FE0019D28D /* SwiftyJSON.swift in Sources */,
 				779F1B871B8BFC2200E4763D /* SearchViewController.swift in Sources */,
 				779F1B931B8BFFF900E4763D /* HistoryViewController.swift in Sources */,
 				779F1B8D1B8BFD2E00E4763D /* ProfileViewController.swift in Sources */,

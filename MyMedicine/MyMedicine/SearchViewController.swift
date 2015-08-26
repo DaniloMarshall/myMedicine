@@ -15,10 +15,39 @@ class SearchViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         SharedServices.CheckSavedData()
+        
         var symptomsList = SharedServices.RetrieveSavedSymptoms()
         
         for symptom in symptomsList {
             println(symptom.name)
+        }
+        
+        var medicinesList = SharedServices.RetrieveSavedMedicines()
+        for medicine in medicinesList {
+            println(medicine.name)
+        }
+        
+        var specialistsList = SharedServices.RetrieveSavedSpecialists()
+        for specialist in specialistsList {
+            if specialist.symptoms.count > 0 {
+                let numSymptoms = specialist.symptoms.count
+                var i = 0
+                
+                var symptomList = ""
+                
+                for symptom in specialist.symptoms {
+                    symptomList += (symptom as! Symptom).name
+                    
+                    if i+1 < numSymptoms {
+                        symptomList += ","
+                    }
+                    
+                    i++
+                }
+                println("Specialist \(specialist.name): \(symptomList)")
+            } else {
+                println("Specialist \(specialist.name)")
+            }
         }
     }
 
