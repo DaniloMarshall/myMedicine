@@ -31,6 +31,7 @@
 		779F1B911B8BFFE100E4763D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F1B901B8BFFE100E4763D /* RegisterViewController.swift */; };
 		779F1B931B8BFFF900E4763D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F1B921B8BFFF900E4763D /* HistoryViewController.swift */; };
 		779F1B951B8C04A200E4763D /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F1B941B8C04A200E4763D /* ReminderViewController.swift */; };
+		85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B2691B8E008E00583284 /* ResultsTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		779F1B901B8BFFE100E4763D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		779F1B921B8BFFF900E4763D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		779F1B941B8C04A200E4763D /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		85F3B2691B8E008E00583284 /* ResultsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 		779F1B831B8BF86100E4763D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				85F3B2691B8E008E00583284 /* ResultsTableCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				76E65C6A1B821A4300311F20 /* AppDelegate.swift in Sources */,
 				7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */,
 				76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */,
+				85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */,
 				76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */,
 				76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */,
 				76E08E5B1B8C8C080065FA1C /* Medicine.swift in Sources */,

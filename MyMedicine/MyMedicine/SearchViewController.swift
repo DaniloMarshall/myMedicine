@@ -8,24 +8,68 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UISearchBarDelegate {
+
+class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchType: UISegmentedControl!
     @IBOutlet weak var resultsTable: UITableView!
+    @IBOutlet weak var searchOption: UISegmentedControl!
+    
+    
+    
+    let test = ["one", "alone", "two", "car"]
+    var filteredTest = [String]()
+    
+    
+    
+    var symptomsList = SharedServices.RetrieveSavedSymptoms()
+    var filteredSymptomsList = [Symptom]()
+    
+    var medicineList = SharedServices.RetrieveSavedMedicines()
+    var filteredMedicineList = [Medicine]()
+    
+    var resultSearchController = UISearchController()
+    
+    
+    
+
+    let controller = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
+        
+        for medicine in medicineList {
+            
+            println(medicine.name)
+            
+            
+        }
+        
         super.viewDidLoad()
-        searchBar.delegate = self
-
+        
+        self.resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            self.resultsTable.tableHeaderView = controller.searchBar
+            return controller
+        
+        })()
+        
+        //searchBar.delegate = self
+        resultsTable.delegate = self
+        resultsTable.dataSource = self
+        
         // Do any additional setup after loading the view.
         SharedServices.CheckSavedData()
-        var symptomsList = SharedServices.RetrieveSavedSymptoms()
         
-        for symptom in symptomsList {
-            println(symptom.name)
-        }
+        resultsTable.hidden = false
+        self.resultsTable.reloadData()
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -33,70 +77,171 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
-    
-        searchBar.showsCancelButton = true
-        tableView.reloadData()
-
-    
+        
+        resultsTable.hidden = false
+        controller.searchBar.showsCancelButton = true
+        controller.searchBar.hidden = false
+        resultsTable.reloadData()
     }
     
+    
+    
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.resignFirstResponder()
+        controller.searchBar.showsCancelButton = false
+        controller.searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
+        controller.searchBar.showsCancelButton = false
+        controller.searchBar.text = ""
         
         // Dismiss the keyboard
-        searchBar.resignFirstResponder()
-        
+        controller.searchBar.resignFirstResponder()
     }
     
     // Cancel buttom behaviour
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
+        resultsTable.reloadData()
+
         // Clear any search criteria
-        searchBar.text = ""
+        controller.searchBar.text = ""
         
         // Dismiss the keyboard
-        searchBar.resignFirstResponder()
+        controller.searchBar.resignFirstResponder()
         
-        //recarrega animações
+        controller.searchBar.showsCancelButton = false
+    }
+    
+    
+    
+    //retornos para a tableview da busca
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        searchBar.showsCancelButton = false
+        
+        switch searchOption.selectedSegmentIndex{
+        
+            case 0:
+                if (self.resultSearchController.active){
+                    return self.filteredSymptomsList.count
+                }
+                else{
+                    return self.symptomsList.count
+                }
+        
+            case 1:
+        
+                if (self.resultSearchController.active){
+                    return self.filteredMedicineList.count
+                }
+                else{
+                    return self.medicineList.count
+                }
+            default:
+                return 0
+        }
+    }
+    
+     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
         
     }
     
-    //retornos para a tableview da busca
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        if(searchList == nil) {
-//            return 0
-//        
-//        return searchList.count
-//    }
-//    
-//    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        return 1
-//        
-//    }
-//    
-//    //cria as células-resultado na tabela de busca
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//        var cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SearchTableViewCell
-//        
-//        var obj: PFObject = searchList.objectAtIndex(indexPath.row) as! PFObject
-//        
-//        cell.searchLabel.text = (obj["name"] as! String)
-//        
-//        return cell
-//    }
+    //cria as células-resultado na tabela de busca
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
+        
+        switch searchOption.selectedSegmentIndex{
+
+            case 0:
+            
+                if (self.resultSearchController.active){
+                    cell.textLabel?.text = filteredSymptomsList[indexPath.row].name
+                    return cell
+                }
+                
+                else {
+                    cell.textLabel?.text = ""
+                    return cell
+                }
+
+        
+            case 1:
+        
+                if (self.resultSearchController.active){
+                    cell.textLabel?.text = filteredMedicineList[indexPath.row].name
+                    return cell
+                }
+                
+                else {
+                    cell.textLabel?.text = ""
+                    return cell
+                }
+            default:
+                return cell
+        }
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        
+        
+        switch searchOption.selectedSegmentIndex{
+
+        case 0:
+            filteredSymptomsList.removeAll(keepCapacity: false)
+            
+            let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text)
+            let array = (symptomsList as NSArray).filteredArrayUsingPredicate(searchPredicate)
+            self.filteredSymptomsList = array as! [Symptom]
+            
+            self.resultsTable.reloadData()
+        
+        
+        case 1:
+            
+            filteredMedicineList.removeAll(keepCapacity: false)
+            
+            let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text)
+            let array = (medicineList as NSArray).filteredArrayUsingPredicate(searchPredicate)
+            self.filteredMedicineList = array as! [Medicine]
+            
+            self.resultsTable.reloadData()
+        
+        default:
+            
+            self.resultsTable.reloadData()
+        }
+        
+    }
 
 
+    //prepare for segue
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("segueSearch", sender: indexPath)
+    }
+    
+    //segue
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueSearch"{
+            if let destination = segue.destinationViewController  as? ProfileViewController{
+                if let indexPath = tableView.indexPathForSelectedRow()?.row{
+                    
+                    
+                    
+                    let row = Int(indexPath)
+                    destination.currentObject = (searchList[row]) as! PFObject
+                    
+                }
+                
+            }
+            
+            
+        }
+        
+    }
 
     
 
