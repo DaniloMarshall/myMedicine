@@ -24,6 +24,7 @@ class DatabaseManager
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         let url = urls[urls.count-1].URLByAppendingPathComponent("MyMedicine.sqlite")
         
+        println(url)
         
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."

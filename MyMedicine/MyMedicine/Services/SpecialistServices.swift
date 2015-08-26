@@ -40,6 +40,7 @@ class SpecialistServices {
     static func addSymptom(specialist:Specialist, symptom:Symptom)
     {
         specialist.addSymptomObject(symptom)
+        SpecialistDAO.saveContext()
     }
     
     /**

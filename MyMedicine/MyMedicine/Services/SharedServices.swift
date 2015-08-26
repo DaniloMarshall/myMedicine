@@ -50,6 +50,7 @@ class SharedServices {
     :returns: nil
     */
     static func CreateFakeData() {
+        /*
         // Creating Symptoms
         SymptomServices.createSymptom("Dor de cabeca", description: "Tipos de dor de cabeca...")
         
@@ -85,6 +86,79 @@ class SharedServices {
         let salompasData = NSData(contentsOfURL: pdfLoc!)
 
         MedicineServices.createMedicine("Salonpas", typeMedicine: TypeMedicine.registered, infoLeaflet: salompasData!, descriptionSummary: salompasDescription, posology: salompasPosology, adverseEffects: salompasAdverseEffects, contraindication: salompasContraindication, photo: MedicineDefaultImage)
+        */
+        
+        // Create a default leaflet with 'Air Salompas' information leaflet
+        var pdfLoc = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("airSalompas", ofType:"pdf")!)
+        let salompasData = NSData(contentsOfURL: pdfLoc!)
+        
+        let filePath = NSBundle.mainBundle().pathForResource("medbase",ofType:"json")
+        var readError:NSError?
+        if let data = NSData(contentsOfFile:filePath!, options:NSDataReadingOptions.DataReadingUncached, error:&readError) {
+            let stringData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            //println("data read: \(stringData)")
+            
+            let jsonData = JSON(data: data, options: nil, error: &readError)
+            
+            // Adding Symptons
+            let numSymptoms = jsonData["symptoms"].count
+            for var i = 0; i < numSymptoms; i++ {
+                SymptomServices.createSymptom(jsonData["symptoms"][i]["name"].string!, description: jsonData["symptoms"][i]["description"].string!)
+            }
+            
+            // Adding Specialists
+            let numSpecialists = jsonData["specialists"].count
+            for var i = 0; i < numSpecialists; i++ {
+                SpecialistServices.createSpecialist(jsonData["specialists"][i]["name"].string!, description: jsonData["specialists"][i]["description"].string!)
+            }
+            
+            // Adding Medicines
+            let numMedicines = jsonData["medicines"].count
+            
+            for var i = 0; i < numMedicines; i++ {
+                let typeData = jsonData["medicines"][i]["type"].string
+                var typeMedicine : TypeMedicine = .generic
+                
+                switch typeData! {
+                case "registered":
+                    typeMedicine = .registered
+                case "generic":
+                    typeMedicine = .generic
+                case "homeopathic":
+                    typeMedicine = .homeopathic
+                case "phytotherapic":
+                    typeMedicine = .phytotherapic
+                default:
+                    typeMedicine = .generic
+                }
+                
+                var specificLeaflet = salompasData
+                
+                if jsonData["medicines"][i]["leaflet"] != "" {
+                    // get specific information leaflet
+                }
+                
+                MedicineServices.createMedicine(jsonData["medicines"][i]["name"].string!, typeMedicine: typeMedicine, infoLeaflet: salompasData!, descriptionSummary: jsonData["medicines"][i]["description"].string!, posology: jsonData["medicines"][i]["posology"].string!, adverseEffects: jsonData["medicines"][i]["adverseEffects"].string!, contraindication: jsonData["medicines"][i]["contraindication"].string!, photo: MedicineDefaultImage)
+                
+            }
+            
+            // Adding Symptom-Specialist connections
+            let numSymptomsConnected = jsonData["symptoms_specialists"].count
+            for var i = 0; i < numSymptomsConnected; i++ {
+                let symptom : Symptom = SymptomServices.getSymptomByName(jsonData["symptoms_specialists"][i]["symptom_name"].string!)
+                
+                let numSpecialistsForSymptom = jsonData["symptoms_specialists"][i]["specialists_name_list"].count
+                for var j = 0; j < numSpecialistsForSymptom; j++ {
+                    let specialist : Specialist = SpecialistServices.getSpecialistByName(jsonData["symptoms_specialists"][i]["specialists_name_list"][j].string!)
+                    
+                    SpecialistServices.addSymptom(specialist, symptom: symptom)
+                }
+            }
+            
+            //println("json data: \(jsonMedicines)")
+        }
+        
+        
     }
     
     // MARK: Data manipulation operations

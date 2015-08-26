@@ -66,6 +66,11 @@ class SpecialistDAO {
         // insert element into context
         DatabaseManager.sharedInstance.managedObjectContext?.insertObject(objectToBeInserted)
         
+        saveContext()
+    }
+    
+    static func saveContext()
+    {
         // save context
         var error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.save(error)
@@ -88,14 +93,8 @@ class SpecialistDAO {
         // remove object from context
         var error:NSErrorPointer = nil
         DatabaseManager.sharedInstance.managedObjectContext?.deleteObject(objectToBeDeleted)
-        DatabaseManager.sharedInstance.managedObjectContext?.save(error)
         
-        // log error
-        if (error != nil)
-        {
-            // log error
-            print(error)
-        }
+        saveContext()
     }
     
     
