@@ -19,6 +19,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
 
         // Do any additional setup after loading the view.
+        SharedServices.CheckSavedData()
+        var symptomsList = SharedServices.RetrieveSavedSymptoms()
+        
+        for symptom in symptomsList {
+            println(symptom.name)
+        }
     }
 
     override func didReceiveMemoryWarning() {
