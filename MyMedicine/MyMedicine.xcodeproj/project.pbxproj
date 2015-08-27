@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6CD1B8CABFE0019D28D /* Specialist.swift */; };
 		7640C6D01B8CF1E30019D28D /* airSalompas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */; };
 		7640C6D31B8D64FE0019D28D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6D21B8D64FE0019D28D /* SwiftyJSON.swift */; };
 		7640C6D51B8D65A70019D28D /* medbase.json in Resources */ = {isa = PBXBuildFile; fileRef = 7640C6D41B8D65A70019D28D /* medbase.json */; };
+		7640C6D71B8E9CAB0019D28D /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6D61B8E9CAB0019D28D /* Medicine.swift */; };
+		7640C6D91B8E9CAC0019D28D /* Specialist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6D81B8E9CAC0019D28D /* Specialist.swift */; };
+		7640C6DD1B8E9CAC0019D28D /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6DC1B8E9CAC0019D28D /* Symptom.swift */; };
+		7640C6DF1B8F2C630019D28D /* RegistryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6DE1B8F2C630019D28D /* RegistryDAO.swift */; };
+		7640C6E51B8F3A340019D28D /* RegistryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6E41B8F3A340019D28D /* RegistryServices.swift */; };
+		7640C6E71B8F42530019D28D /* Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C6E61B8F42530019D28D /* Registry.swift */; };
 		76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E3E1B8B62D70065FA1C /* DatabaseManager.swift */; };
 		76E08E421B8B633B0065FA1C /* MyMedicine.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E401B8B633B0065FA1C /* MyMedicine.xcdatamodeld */; };
-		76E08E491B8BFF0F0065FA1C /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E481B8BFF0F0065FA1C /* Symptom.swift */; };
 		76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E4C1B8C08690065FA1C /* SpecialistDAO.swift */; };
 		76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E4E1B8C08980065FA1C /* SymptomDAO.swift */; };
 		76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E501B8C08B10065FA1C /* MedicineDAO.swift */; };
@@ -21,7 +25,6 @@
 		76E08E551B8C11720065FA1C /* SymptomServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E541B8C11720065FA1C /* SymptomServices.swift */; };
 		76E08E571B8C118D0065FA1C /* MedicineServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E561B8C118D0065FA1C /* MedicineServices.swift */; };
 		76E08E591B8C84200065FA1C /* SharedServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E581B8C84200065FA1C /* SharedServices.swift */; };
-		76E08E5B1B8C8C080065FA1C /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E08E5A1B8C8C080065FA1C /* Medicine.swift */; };
 		76E65C6A1B821A4300311F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E65C691B821A4300311F20 /* AppDelegate.swift */; };
 		76E65C6F1B821A4300311F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E65C6D1B821A4300311F20 /* Main.storyboard */; };
 		76E65C711B821A4300311F20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76E65C701B821A4300311F20 /* Images.xcassets */; };
@@ -46,13 +49,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7640C6CD1B8CABFE0019D28D /* Specialist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Specialist.swift; path = Persistence/VO/Specialist.swift; sourceTree = "<group>"; };
 		7640C6CF1B8CF1E30019D28D /* airSalompas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = airSalompas.pdf; sourceTree = "<group>"; };
 		7640C6D21B8D64FE0019D28D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		7640C6D41B8D65A70019D28D /* medbase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = medbase.json; sourceTree = "<group>"; };
+		7640C6D61B8E9CAB0019D28D /* Medicine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Medicine.swift; path = Persistence/VO/Medicine.swift; sourceTree = "<group>"; };
+		7640C6D81B8E9CAC0019D28D /* Specialist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Specialist.swift; path = Persistence/VO/Specialist.swift; sourceTree = "<group>"; };
+		7640C6DC1B8E9CAC0019D28D /* Symptom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Symptom.swift; path = Persistence/VO/Symptom.swift; sourceTree = "<group>"; };
+		7640C6DE1B8F2C630019D28D /* RegistryDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistryDAO.swift; path = Persistence/DAO/RegistryDAO.swift; sourceTree = "<group>"; };
+		7640C6E41B8F3A340019D28D /* RegistryServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistryServices.swift; path = Services/RegistryServices.swift; sourceTree = "<group>"; };
+		7640C6E61B8F42530019D28D /* Registry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Registry.swift; path = Persistence/VO/Registry.swift; sourceTree = "<group>"; };
 		76E08E3E1B8B62D70065FA1C /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatabaseManager.swift; path = Persistence/DatabaseManager.swift; sourceTree = "<group>"; };
 		76E08E411B8B633B0065FA1C /* MyMedicine.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyMedicine.xcdatamodel; sourceTree = "<group>"; };
-		76E08E481B8BFF0F0065FA1C /* Symptom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Symptom.swift; path = Persistence/VO/Symptom.swift; sourceTree = "<group>"; };
 		76E08E4C1B8C08690065FA1C /* SpecialistDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpecialistDAO.swift; path = Persistence/DAO/SpecialistDAO.swift; sourceTree = "<group>"; };
 		76E08E4E1B8C08980065FA1C /* SymptomDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SymptomDAO.swift; path = Persistence/DAO/SymptomDAO.swift; sourceTree = "<group>"; };
 		76E08E501B8C08B10065FA1C /* MedicineDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicineDAO.swift; path = Persistence/DAO/MedicineDAO.swift; sourceTree = "<group>"; };
@@ -60,7 +67,6 @@
 		76E08E541B8C11720065FA1C /* SymptomServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SymptomServices.swift; path = Services/SymptomServices.swift; sourceTree = "<group>"; };
 		76E08E561B8C118D0065FA1C /* MedicineServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MedicineServices.swift; path = Services/MedicineServices.swift; sourceTree = "<group>"; };
 		76E08E581B8C84200065FA1C /* SharedServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedServices.swift; path = Services/SharedServices.swift; sourceTree = "<group>"; };
-		76E08E5A1B8C8C080065FA1C /* Medicine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Medicine.swift; path = Persistence/VO/Medicine.swift; sourceTree = "<group>"; };
 		76E65C641B821A4300311F20 /* MyMedicine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMedicine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E65C681B821A4300311F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E65C691B821A4300311F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,9 +116,10 @@
 		76E08E431B8BEEE10065FA1C /* VO */ = {
 			isa = PBXGroup;
 			children = (
-				7640C6CD1B8CABFE0019D28D /* Specialist.swift */,
-				76E08E5A1B8C8C080065FA1C /* Medicine.swift */,
-				76E08E481B8BFF0F0065FA1C /* Symptom.swift */,
+				7640C6E61B8F42530019D28D /* Registry.swift */,
+				7640C6DC1B8E9CAC0019D28D /* Symptom.swift */,
+				7640C6D81B8E9CAC0019D28D /* Specialist.swift */,
+				7640C6D61B8E9CAB0019D28D /* Medicine.swift */,
 			);
 			name = VO;
 			sourceTree = "<group>";
@@ -123,6 +130,7 @@
 				76E08E4C1B8C08690065FA1C /* SpecialistDAO.swift */,
 				76E08E4E1B8C08980065FA1C /* SymptomDAO.swift */,
 				76E08E501B8C08B10065FA1C /* MedicineDAO.swift */,
+				7640C6DE1B8F2C630019D28D /* RegistryDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 				76E08E541B8C11720065FA1C /* SymptomServices.swift */,
 				76E08E561B8C118D0065FA1C /* MedicineServices.swift */,
 				76E08E581B8C84200065FA1C /* SharedServices.swift */,
+				7640C6E41B8F3A340019D28D /* RegistryServices.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -332,23 +341,26 @@
 			files = (
 				779F1B8F1B8BFFA200E4763D /* CalendarViewController.swift in Sources */,
 				779F1B911B8BFFE100E4763D /* RegisterViewController.swift in Sources */,
+				7640C6E51B8F3A340019D28D /* RegistryServices.swift in Sources */,
 				779F1B951B8C04A200E4763D /* ReminderViewController.swift in Sources */,
 				7640C6D31B8D64FE0019D28D /* SwiftyJSON.swift in Sources */,
 				779F1B871B8BFC2200E4763D /* SearchViewController.swift in Sources */,
 				779F1B931B8BFFF900E4763D /* HistoryViewController.swift in Sources */,
 				779F1B8D1B8BFD2E00E4763D /* ProfileViewController.swift in Sources */,
+				7640C6DF1B8F2C630019D28D /* RegistryDAO.swift in Sources */,
+				7640C6D71B8E9CAB0019D28D /* Medicine.swift in Sources */,
+				7640C6D91B8E9CAC0019D28D /* Specialist.swift in Sources */,
 				76E08E551B8C11720065FA1C /* SymptomServices.swift in Sources */,
-				76E08E491B8BFF0F0065FA1C /* Symptom.swift in Sources */,
+				7640C6E71B8F42530019D28D /* Registry.swift in Sources */,
 				76E65C6A1B821A4300311F20 /* AppDelegate.swift in Sources */,
-				7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */,
 				76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */,
 				76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */,
 				76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */,
-				76E08E5B1B8C8C080065FA1C /* Medicine.swift in Sources */,
 				76E08E591B8C84200065FA1C /* SharedServices.swift in Sources */,
 				76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */,
 				76E08E571B8C118D0065FA1C /* MedicineServices.swift in Sources */,
 				76E08E531B8C112E0065FA1C /* SpecialistServices.swift in Sources */,
+				7640C6DD1B8E9CAC0019D28D /* Symptom.swift in Sources */,
 				76E08E421B8B633B0065FA1C /* MyMedicine.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
