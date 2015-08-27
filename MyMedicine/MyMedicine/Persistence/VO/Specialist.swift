@@ -13,8 +13,8 @@ class Specialist: NSManagedObject {
 
     @NSManaged var descriptionTxt: String
     @NSManaged var name: String
-    @NSManaged var symptoms: NSOrderedSet
-    @NSManaged var registries: NSSet
+    @NSManaged var symptoms: NSSet
+    @NSManaged var registries: NSOrderedSet
     
     
     /// The designated initializer
