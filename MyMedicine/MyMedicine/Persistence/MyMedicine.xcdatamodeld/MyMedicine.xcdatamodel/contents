@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Medicine" representedClassName="MyMedicine.Medicine" syncable="YES">
-        <attribute name="adverseEffects" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="contraindication" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="descriptionSummary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adverseEffects" attributeType="String" syncable="YES"/>
+        <attribute name="contraindication" attributeType="String" syncable="YES"/>
+        <attribute name="descriptionSummary" attributeType="String" syncable="YES"/>
         <attribute name="informationLeaflet" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="photo" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="posology" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="posology" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="registries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Registry" inverseName="medicineValue" inverseEntity="Registry" syncable="YES"/>
         <relationship name="relatedMeds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="relatedMeds" inverseEntity="Medicine" syncable="YES"/>
+    </entity>
+    <entity name="Registry" representedClassName="PRODUCT_MODULE_NAME.Registry" syncable="YES">
+        <attribute name="amountDaysOff" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="amountDaysOn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="amountDaysPeriod" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateAdded" attributeType="Date" syncable="YES"/>
+        <attribute name="dateChosen" attributeType="Date" syncable="YES"/>
+        <attribute name="hasDaysOff" attributeType="Boolean" syncable="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="isDaily" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isFixedPeriod" attributeType="Boolean" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="medicineValue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Medicine" inverseName="registries" inverseEntity="Medicine" syncable="YES"/>
+        <relationship name="specialistValue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Specialist" inverseName="registries" inverseEntity="Specialist" syncable="YES"/>
+        <relationship name="symptomValue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Symptom" inverseName="registries" inverseEntity="Symptom" syncable="YES"/>
     </entity>
     <entity name="Specialist" representedClassName="MyMedicine.Specialist" syncable="YES">
         <attribute name="descriptionTxt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Symptom" inverseName="specialists" inverseEntity="Symptom" syncable="YES"/>
+        <relationship name="registries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Registry" inverseName="specialistValue" inverseEntity="Registry" syncable="YES"/>
+        <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Symptom" inverseName="specialists" inverseEntity="Symptom" syncable="YES"/>
     </entity>
     <entity name="Symptom" representedClassName="MyMedicine.Symptom" syncable="YES">
         <attribute name="descriptionTxt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="registries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Registry" inverseName="symptomValue" inverseEntity="Registry" syncable="YES"/>
         <relationship name="specialists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Specialist" inverseName="symptoms" inverseEntity="Specialist" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Medicine" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="Specialist" positionX="-36" positionY="27" width="128" height="90"/>
-        <element name="Symptom" positionX="-54" positionY="18" width="128" height="90"/>
+        <element name="Medicine" positionX="-281" positionY="-18" width="128" height="193"/>
+        <element name="Specialist" positionX="349" positionY="14" width="128" height="103"/>
+        <element name="Symptom" positionX="369" positionY="338" width="128" height="103"/>
+        <element name="Registry" positionX="18" positionY="-18" width="128" height="253"/>
     </elements>
 </model>

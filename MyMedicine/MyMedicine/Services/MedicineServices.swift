@@ -56,11 +56,11 @@ class MedicineServices {
     {
         // create operation
         let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-            // find destination
+            // find medicine
             var medicine:Medicine? = MedicineDAO.findFirstByName(name)
             if (medicine != nil)
             {
-                // delete destination
+                // delete medicine
                 MedicineDAO.delete(medicine!)
             }
         })
