@@ -12,7 +12,7 @@
         <relationship name="registries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Registry" inverseName="medicineValue" inverseEntity="Registry" syncable="YES"/>
         <relationship name="relatedMeds" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="relatedMeds" inverseEntity="Medicine" syncable="YES"/>
     </entity>
-    <entity name="Registry" representedClassName="PRODUCT_MODULE_NAME.Registry" syncable="YES">
+    <entity name="Registry" representedClassName="MyMedicine.Registry" syncable="YES">
         <attribute name="amountDaysOff" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="amountDaysOn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="amountDaysPeriod" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -42,8 +42,8 @@
     </entity>
     <elements>
         <element name="Medicine" positionX="-281" positionY="-18" width="128" height="193"/>
+        <element name="Registry" positionX="18" positionY="-18" width="128" height="255"/>
         <element name="Specialist" positionX="349" positionY="14" width="128" height="103"/>
         <element name="Symptom" positionX="369" positionY="338" width="128" height="103"/>
-        <element name="Registry" positionX="18" positionY="-18" width="128" height="253"/>
     </elements>
 </model>
