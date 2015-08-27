@@ -31,8 +31,8 @@
     <entity name="Specialist" representedClassName="MyMedicine.Specialist" syncable="YES">
         <attribute name="descriptionTxt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="registries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Registry" inverseName="specialistValue" inverseEntity="Registry" syncable="YES"/>
-        <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Symptom" inverseName="specialists" inverseEntity="Symptom" syncable="YES"/>
+        <relationship name="registries" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Registry" inverseName="specialistValue" inverseEntity="Registry" syncable="YES"/>
+        <relationship name="symptoms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Symptom" inverseName="specialists" inverseEntity="Symptom" syncable="YES"/>
     </entity>
     <entity name="Symptom" representedClassName="MyMedicine.Symptom" syncable="YES">
         <attribute name="descriptionTxt" optional="YES" attributeType="String" syncable="YES"/>
@@ -43,7 +43,7 @@
     <elements>
         <element name="Medicine" positionX="-281" positionY="-18" width="128" height="193"/>
         <element name="Registry" positionX="18" positionY="-18" width="128" height="255"/>
-        <element name="Specialist" positionX="349" positionY="14" width="128" height="103"/>
+        <element name="Specialist" positionX="349" positionY="14" width="128" height="105"/>
         <element name="Symptom" positionX="369" positionY="338" width="128" height="103"/>
     </elements>
 </model>
