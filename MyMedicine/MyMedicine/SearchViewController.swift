@@ -11,15 +11,15 @@ import UIKit
 
 class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate {
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    //@IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchType: UISegmentedControl!
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var searchOption: UISegmentedControl!
     
     
-    
-    let test = ["one", "alone", "two", "car"]
-    var filteredTest = [String]()
+    // testing search function
+    //let test = ["one", "alone", "two", "car"]
+    //var filteredTest = [String]()
     
     
     
@@ -52,13 +52,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
+            controller.hidesNavigationBarDuringPresentation = false
             
             self.resultsTable.tableHeaderView = controller.searchBar
             return controller
         
         })()
         
-        //searchBar.delegate = self
         resultsTable.delegate = self
         resultsTable.dataSource = self
         
@@ -76,9 +76,11 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
-        resultsTable.hidden = false
+        //resultsTable.hidden = false
         controller.searchBar.showsCancelButton = true
         controller.searchBar.hidden = false
         resultsTable.reloadData()

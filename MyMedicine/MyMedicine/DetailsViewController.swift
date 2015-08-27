@@ -17,7 +17,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var name: UILabel!
     
-    
+    @IBOutlet weak var typeMed: UILabel!
+    @IBOutlet weak var posology: UILabel!
+    @IBOutlet weak var adverseEffects: UILabel!
+    @IBOutlet weak var contraIndication: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +44,36 @@ class DetailsViewController: UIViewController {
         if let object = currentObject as? Symptom{
             
             name.text = object.name as String
-            Description.text = object.description as String
+            Description.text = object.descriptionTxt as String
+            posology.hidden = true
+            adverseEffects.hidden = true
+            contraIndication.hidden = true
+            typeMed.hidden = true
             
-            
+            Description.numberOfLines = 0
             Description.sizeToFit()
             adjustContentSize()
 
             
             }
+        
+        else if let object = currentObject as? Medicine{
+            
+            name.text = object.name as String
+            Description.text = object.descriptionSummary as String
+            posology.text = object.posology as String
+            adverseEffects.text = object.adverseEffects as String
+            contraIndication.text = object.contraindication as String
+            
+
+
+
+            Description.numberOfLines = 0
+            Description.sizeToFit()
+            adjustContentSize()
+            
+            
+        }
             
             
             
