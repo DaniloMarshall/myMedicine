@@ -111,6 +111,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
+        
         controller.searchBar.showsCancelButton = false
     }
     
@@ -226,13 +227,23 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     //segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueSearch"{
-            if let destination = segue.destinationViewController  as? ProfileViewController{
-                if let indexPath = tableView.indexPathForSelectedRow()?.row{
+            if let destination = segue.destinationViewController  as? DetailsViewController{
+                if let indexPath = resultsTable.indexPathForSelectedRow()?.row{
                     
+                    switch searchOption.selectedSegmentIndex{
+
+                    case 0:
+                        let row = Int(indexPath)
+                        destination.currentObject = (filteredSymptomsList[row]) as Symptom
+                        
+                    case 1:
+                        let row = Int(indexPath)
+                        destination.currentObject = (filteredMedicineList[row]) as Medicine
                     
+                    default:
+                        break
                     
-                    let row = Int(indexPath)
-                    destination.currentObject = (searchList[row]) as! PFObject
+                    }
                     
                 }
                 
@@ -244,7 +255,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     }
 
     
-
+//
     /*
     // MARK: - Navigation
 
