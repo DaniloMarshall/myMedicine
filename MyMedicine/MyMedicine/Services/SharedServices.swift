@@ -158,7 +158,6 @@ class SharedServices {
             //println("json data: \(jsonMedicines)")
         }
         
-        
     }
     
     // MARK: Data manipulation operations
@@ -175,6 +174,4 @@ class SharedServices {
         return MedicineDAO.getMedicinesList()
     }
 
-    
-    
 }

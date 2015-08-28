@@ -11,7 +11,7 @@ import CoreData
 
 class MedicineDAO {
     /**
-    Used to find a Symptom Data using it's name
+    Used to find a Medicine Data using it's name
     
     :param: name    String with name of medicine
     
@@ -104,7 +104,7 @@ class MedicineDAO {
     
     :param: nil
     
-    :returns: array of Symptom
+    :returns: array of Medicine
     */
     static func getMedicinesList() -> [Medicine] {
         // creating fetch request

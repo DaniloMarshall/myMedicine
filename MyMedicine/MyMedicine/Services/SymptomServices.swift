@@ -53,11 +53,11 @@ class SymptomServices {
     {
         // create operation
         let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-            // find company
+            // find symptom
             var symptom:Symptom? = SymptomDAO.findFirstByName(name)
             if (symptom != nil)
             {
-                // delete company
+                // delete symptom
                 SymptomDAO.delete(symptom!)
             }
         })
