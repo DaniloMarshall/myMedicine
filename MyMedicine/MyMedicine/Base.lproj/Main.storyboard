@@ -2,8 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QaV-q5-3RO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -102,16 +102,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AKt-eF-4vp" userLabel="Calendar Menu View" customClass="CVCalendarMenuView" customModule="MyMedicine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="65" width="600" height="74"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="94"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-CC-W7b" userLabel="MonthLabel">
-                                        <rect key="frame" x="246" y="27" width="106" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <rect key="frame" x="257" y="17" width="84.5" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-O2-Kfe">
-                                        <rect key="frame" x="153" y="22" width="30" height="30"/>
+                                        <rect key="frame" x="152" y="23" width="30" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="&lt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -120,7 +121,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIQ-F3-USx">
-                                        <rect key="frame" x="422" y="22" width="30" height="30"/>
+                                        <rect key="frame" x="416" y="23" width="30" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="&gt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -131,66 +133,69 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.89019607840000003" green="0.89411764709999997" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="LIQ-F3-USx" firstAttribute="leading" secondItem="LgH-O2-Kfe" secondAttribute="trailing" constant="239" id="CTc-PP-nLc"/>
-                                    <constraint firstItem="LIQ-F3-USx" firstAttribute="leading" secondItem="b1D-CC-W7b" secondAttribute="trailing" constant="70" id="K95-Pt-RyU"/>
-                                    <constraint firstAttribute="centerY" secondItem="LIQ-F3-USx" secondAttribute="centerY" id="LgJ-bc-Sb7"/>
-                                    <constraint firstAttribute="width" secondItem="AKt-eF-4vp" secondAttribute="height" multiplier="300:37" id="Myt-sT-FwE"/>
-                                    <constraint firstAttribute="centerY" secondItem="LgH-O2-Kfe" secondAttribute="centerY" id="OUw-Lk-Y7v"/>
-                                    <constraint firstAttribute="centerX" secondItem="b1D-CC-W7b" secondAttribute="centerX" constant="1" id="YLR-rH-jEj"/>
-                                    <constraint firstAttribute="height" constant="74" id="au1-Tl-tuK"/>
-                                    <constraint firstAttribute="centerY" secondItem="b1D-CC-W7b" secondAttribute="centerY" constant="0.5" id="bSU-6h-mlg"/>
-                                    <constraint firstAttribute="width" constant="600" id="crW-6q-7Oi"/>
-                                    <constraint firstItem="b1D-CC-W7b" firstAttribute="leading" secondItem="LgH-O2-Kfe" secondAttribute="trailing" constant="63" id="sdr-Ym-k1p"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdB-io-jQc" userLabel="Calendar View" customClass="CVCalendarView" customModule="MyMedicine" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="163" width="600" height="256"/>
-                                <color key="backgroundColor" red="0.89019607840000003" green="0.89411764709999997" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="9Rj-bm-YDp"/>
-                                    <constraint firstAttribute="height" constant="256" id="PZJ-gW-IRQ"/>
-                                    <constraint firstAttribute="width" secondItem="jdB-io-jQc" secondAttribute="height" multiplier="75:32" id="Yk9-uw-lwI"/>
+                                    <constraint firstItem="LIQ-F3-USx" firstAttribute="leading" secondItem="b1D-CC-W7b" secondAttribute="trailing" constant="75" id="M3w-BS-Inz"/>
+                                    <constraint firstItem="b1D-CC-W7b" firstAttribute="height" secondItem="AKt-eF-4vp" secondAttribute="height" multiplier="1/2" id="WNk-t5-FIS"/>
+                                    <constraint firstItem="b1D-CC-W7b" firstAttribute="leading" secondItem="LgH-O2-Kfe" secondAttribute="trailing" constant="75" id="X9Q-TS-hqf"/>
+                                    <constraint firstAttribute="centerY" secondItem="LgH-O2-Kfe" secondAttribute="centerY" id="XKB-PG-Phc"/>
+                                    <constraint firstAttribute="centerX" secondItem="b1D-CC-W7b" secondAttribute="centerX" id="Za6-kY-tEU"/>
+                                    <constraint firstAttribute="centerY" secondItem="LIQ-F3-USx" secondAttribute="centerY" id="e8p-uB-ZUX"/>
+                                    <constraint firstAttribute="centerY" secondItem="b1D-CC-W7b" secondAttribute="centerY" constant="6" id="ef5-qs-TQO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-li-8Ov" userLabel="Buttons Container">
-                                <rect key="frame" x="0.0" y="419" width="600" height="132"/>
+                                <rect key="frame" x="0.0" y="458" width="600" height="94"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eax-5D-Idm" userLabel="Histórico">
-                                        <rect key="frame" x="354" y="51" width="62" height="30"/>
-                                        <state key="normal" title="Histórico">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2R-Ht-1Qm" userLabel="Adicionar">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="94"/>
+                                        <state key="normal" title="Adicionar">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2R-Ht-1Qm" userLabel="Adicionar">
-                                        <rect key="frame" x="208" y="51" width="65" height="30"/>
-                                        <state key="normal" title="Adicionar">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eax-5D-Idm" userLabel="Histórico">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="94"/>
+                                        <state key="normal" title="Histórico">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="Eax-5D-Idm" secondAttribute="centerY" id="G5a-6w-hmn"/>
-                                    <constraint firstAttribute="width" secondItem="MEx-li-8Ov" secondAttribute="height" multiplier="50:11" id="Q3K-uT-Tr0"/>
-                                    <constraint firstAttribute="centerY" secondItem="H2R-Ht-1Qm" secondAttribute="centerY" id="Qvz-5C-n4Y"/>
-                                    <constraint firstAttribute="centerX" secondItem="H2R-Ht-1Qm" secondAttribute="centerX" constant="60" id="rdf-nJ-qKU"/>
-                                    <constraint firstItem="Eax-5D-Idm" firstAttribute="leading" secondItem="H2R-Ht-1Qm" secondAttribute="trailing" constant="81" id="tAC-hF-FCj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Eax-5D-Idm" secondAttribute="bottom" id="1Bs-qF-n3l"/>
+                                    <constraint firstAttribute="bottom" secondItem="H2R-Ht-1Qm" secondAttribute="bottom" id="5nP-Ba-M4i"/>
+                                    <constraint firstItem="Eax-5D-Idm" firstAttribute="width" secondItem="MEx-li-8Ov" secondAttribute="width" multiplier="0.5" id="Orz-D4-wNg"/>
+                                    <constraint firstItem="H2R-Ht-1Qm" firstAttribute="top" secondItem="MEx-li-8Ov" secondAttribute="top" id="YIc-xs-1rZ"/>
+                                    <constraint firstItem="H2R-Ht-1Qm" firstAttribute="leading" secondItem="MEx-li-8Ov" secondAttribute="leading" id="b5B-B3-0q6"/>
+                                    <constraint firstItem="H2R-Ht-1Qm" firstAttribute="width" secondItem="MEx-li-8Ov" secondAttribute="width" multiplier="1/2" id="bCi-l7-wD4"/>
+                                    <constraint firstItem="Eax-5D-Idm" firstAttribute="top" secondItem="MEx-li-8Ov" secondAttribute="top" id="eON-1d-8Z1"/>
+                                    <constraint firstAttribute="trailing" secondItem="Eax-5D-Idm" secondAttribute="trailing" id="gjK-rv-R9l"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdB-io-jQc" userLabel="Calendar View" customClass="CVCalendarView" customModule="MyMedicine" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="158" width="600" height="300"/>
+                                <color key="backgroundColor" red="0.89019607840000003" green="0.89411764709999997" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="jdB-io-jQc" secondAttribute="centerX" id="94S-Vj-VeG"/>
-                            <constraint firstItem="MEx-li-8Ov" firstAttribute="top" secondItem="jdB-io-jQc" secondAttribute="bottom" id="Al0-aB-Qxw"/>
-                            <constraint firstAttribute="width" secondItem="jdB-io-jQc" secondAttribute="width" id="Edj-uI-Nzb"/>
-                            <constraint firstItem="AKt-eF-4vp" firstAttribute="width" secondItem="2io-gj-Nyi" secondAttribute="width" id="GNc-KF-ep7"/>
-                            <constraint firstAttribute="width" secondItem="MEx-li-8Ov" secondAttribute="width" id="HWu-ol-Crm"/>
-                            <constraint firstItem="MEx-li-8Ov" firstAttribute="leading" secondItem="2io-gj-Nyi" secondAttribute="leadingMargin" constant="-16" id="RLz-lc-J46"/>
-                            <constraint firstItem="AKt-eF-4vp" firstAttribute="top" secondItem="UJo-eF-4tJ" secondAttribute="bottom" constant="1" id="c53-hE-Hgc"/>
-                            <constraint firstItem="MEx-li-8Ov" firstAttribute="bottom" secondItem="DYm-PV-DdZ" secondAttribute="top" id="ggX-5c-yj2"/>
-                            <constraint firstAttribute="centerX" secondItem="AKt-eF-4vp" secondAttribute="centerX" id="k0O-fd-a4P"/>
-                            <constraint firstItem="jdB-io-jQc" firstAttribute="top" secondItem="AKt-eF-4vp" secondAttribute="bottom" constant="24" id="xyU-Zm-ZtZ"/>
+                            <constraint firstItem="jdB-io-jQc" firstAttribute="top" secondItem="AKt-eF-4vp" secondAttribute="bottom" id="2UQ-Sq-woC"/>
+                            <constraint firstItem="jdB-io-jQc" firstAttribute="leading" secondItem="2io-gj-Nyi" secondAttribute="leadingMargin" constant="-16" id="827-Li-MUQ"/>
+                            <constraint firstItem="AKt-eF-4vp" firstAttribute="top" secondItem="UJo-eF-4tJ" secondAttribute="bottom" id="CUd-Jt-Q1E"/>
+                            <constraint firstItem="AKt-eF-4vp" firstAttribute="leading" secondItem="2io-gj-Nyi" secondAttribute="leadingMargin" constant="-16" id="DVl-fE-aPc"/>
+                            <constraint firstAttribute="trailing" secondItem="MEx-li-8Ov" secondAttribute="trailing" id="KAk-cJ-kAL"/>
+                            <constraint firstItem="MEx-li-8Ov" firstAttribute="height" secondItem="AKt-eF-4vp" secondAttribute="height" id="cR0-L0-vzU"/>
+                            <constraint firstItem="jdB-io-jQc" firstAttribute="height" secondItem="2io-gj-Nyi" secondAttribute="height" multiplier="0.5" id="cfU-FW-ngH"/>
+                            <constraint firstAttribute="bottom" secondItem="MEx-li-8Ov" secondAttribute="bottom" constant="48" id="dJH-bb-vls"/>
+                            <constraint firstItem="MEx-li-8Ov" firstAttribute="leading" secondItem="2io-gj-Nyi" secondAttribute="leading" id="dQq-Kd-So9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jdB-io-jQc" secondAttribute="trailing" constant="-16" id="syV-XI-YLK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AKt-eF-4vp" secondAttribute="trailing" constant="-16" id="tCe-HM-lcP"/>
+                            <constraint firstItem="MEx-li-8Ov" firstAttribute="top" secondItem="jdB-io-jQc" secondAttribute="bottom" id="u0C-6q-raV"/>
+                            <constraint firstItem="jdB-io-jQc" firstAttribute="top" secondItem="AKt-eF-4vp" secondAttribute="bottom" id="veY-yQ-lXb"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2UQ-Sq-woC"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Registros" id="K5o-ws-HKM" userLabel="Registros"/>
                     <connections>
