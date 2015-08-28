@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate {
+class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
     //@IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchType: UISegmentedControl!
@@ -29,7 +29,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     var medicineList = SharedServices.RetrieveSavedMedicines()
     var filteredMedicineList = [Medicine]()
     
-    var resultSearchController = UISearchController()
+//    var resultSearchController = UISearchController()
     
     
     
@@ -47,17 +47,23 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
         super.viewDidLoad()
         
-        self.resultSearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
-            controller.hidesNavigationBarDuringPresentation = false
-            
-            self.resultsTable.tableHeaderView = controller.searchBar
-            return controller
+       // self.resultSearchController = ({
+//          let controller = UISearchController(searchResultsController: nil)
+            self.controller.searchResultsUpdater = self
+            self.controller.dimsBackgroundDuringPresentation = false
+            self.controller.searchBar.sizeToFit()
+            self.controller.hidesNavigationBarDuringPresentation = false
+            self.controller.delegate = self
+            self.controller.searchBar.delegate = self
+            self.definesPresentationContext = true
+            self.providesPresentationContextTransitionStyle = true
         
-        })()
+        
+            
+            self.resultsTable.tableHeaderView = self.controller.searchBar
+//            return self.controller
+//        
+//        })()
         
         resultsTable.delegate = self
         resultsTable.dataSource = self
@@ -67,6 +73,8 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
         resultsTable.hidden = false
         self.resultsTable.reloadData()
+        resultsTable.tableFooterView = UIView()
+        
     }
     
 
@@ -75,7 +83,15 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillDisappear(animated: Bool) {
+       
+        
+        super.viewWillDisappear(animated)
+        
+        
+        
+        
+    }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
@@ -125,7 +141,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         switch searchOption.selectedSegmentIndex{
         
             case 0:
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     return self.filteredSymptomsList.count
                 }
                 else{
@@ -134,7 +150,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
             case 1:
         
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     return self.filteredMedicineList.count
                 }
                 else{
@@ -159,26 +175,30 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
 
             case 0:
             
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     cell.textLabel?.text = filteredSymptomsList[indexPath.row].name
                     return cell
                 }
                 
                 else {
-                    cell.textLabel?.text = ""
+                    //cell.textLabel?.text = ""
+                    //tableView.allowsSelection = false
+                    cell.hidden = true
                     return cell
                 }
 
         
             case 1:
         
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     cell.textLabel?.text = filteredMedicineList[indexPath.row].name
                     return cell
                 }
                 
                 else {
-                    cell.textLabel?.text = ""
+                    //cell.textLabel?.text = ""
+                    //tableView.allowsSelection = false
+                    cell.hidden = true
                     return cell
                 }
             default:
@@ -222,14 +242,23 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
 
     //prepare for segue
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("segueSearch", sender: indexPath)
+        
+        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+        
+        if (cell?.textLabel?.text != ""){
+            performSegueWithIdentifier("segueSearch", sender: indexPath)
+        }
     }
     
     //segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueSearch"{
+            
+            
             if let destination = segue.destinationViewController  as? DetailsViewController{
                 if let indexPath = resultsTable.indexPathForSelectedRow()?.row{
+                    
+
                     
                     switch searchOption.selectedSegmentIndex{
 

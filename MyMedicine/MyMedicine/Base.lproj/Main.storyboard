@@ -439,10 +439,10 @@
             </objects>
             <point key="canvasLocation" x="1771" y="-326"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="aQQ-9u-UTU">
             <objects>
-                <tabBarController id="c0O-sz-st6" sceneMemberID="viewController">
+                <tabBarController id="c0O-sz-st6" customClass="TabViewController" customModule="MyMedicine" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="iqa-Qt-xED"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="1br-FY-zxV">

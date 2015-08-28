@@ -65,6 +65,7 @@
 		77E7B9AB1B8F40A3003976E5 /* CVShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B9911B8F40A3003976E5 /* CVShape.swift */; };
 		85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B2691B8E008E00583284 /* ResultsTableCell.swift */; };
 		85F3B2701B8F4AA300583284 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */; };
+		85F6E3891B90D53800D04431 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F6E3881B90D53800D04431 /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		77E7B9911B8F40A3003976E5 /* CVShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVShape.swift; sourceTree = "<group>"; };
 		85F3B2691B8E008E00583284 /* ResultsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableCell.swift; sourceTree = "<group>"; };
 		85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		85F6E3881B90D53800D04431 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				779F1B921B8BFFF900E4763D /* HistoryViewController.swift */,
 				779F1B941B8C04A200E4763D /* ReminderViewController.swift */,
 				85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */,
+				85F6E3881B90D53800D04431 /* TabViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				7640C7041B8FE91E0019D28D /* Specialist.swift in Sources */,
 				77E7B99B1B8F40A3003976E5 /* CVCalendarTouchController.swift in Sources */,
 				77E7B9941B8F40A3003976E5 /* CVCalendarDayView.swift in Sources */,
+				85F6E3891B90D53800D04431 /* TabViewController.swift in Sources */,
 				77E7B99A1B8F40A3003976E5 /* CVCalendarMonthView.swift in Sources */,
 				77E7B99D1B8F40A3003976E5 /* CVCalendarViewAnimator.swift in Sources */,
 				77E7B9A71B8F40A3003976E5 /* CVRange.swift in Sources */,
@@ -490,18 +494,9 @@
 				7640C7051B8FE91E0019D28D /* Symptom.swift in Sources */,
 				77E7B99E1B8F40A3003976E5 /* CVCalendarViewAnimatorDelegate.swift in Sources */,
 				77E7B9A41B8F40A3003976E5 /* CVCalendarWeekday.swift in Sources */,
-				7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */,
-				76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */,
 				85F3B2701B8F4AA300583284 /* DetailsViewController.swift in Sources */,
 				85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */,
-				76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */,
-				76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */,
-				76E08E5B1B8C8C080065FA1C /* Medicine.swift in Sources */,
-				76E08E591B8C84200065FA1C /* SharedServices.swift in Sources */,
-				76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */,
-				76E08E571B8C118D0065FA1C /* MedicineServices.swift in Sources */,
-				76E08E531B8C112E0065FA1C /* SpecialistServices.swift in Sources */,
-				76E08E421B8B633B0065FA1C /* MyMedicine.xcdatamodeld in Sources */,
+				76E08E421B8B633B0065FA1C /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
