@@ -16,8 +16,10 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
  //   @IBOutlet weak var daysOutSwitch: UISwitch!
     
-    var shouldShowDaysOut = true
-    var animationFinished = true
+    var shouldShowDaysOut : Bool = true
+    var animationFinished : Bool = true
+    
+    var hasRecordsForSelectedDate : Bool = false
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -44,6 +46,8 @@ class CalendarViewController: UIViewController {
         // Menu delegate [Required]
         self.calendarMenuView.menuViewDelegate = self
         
+        //RegistryServices.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,15 +55,18 @@ class CalendarViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showRecords" {
+            let registerVC : RegisterViewController = segue.destinationViewController as! RegisterViewController
+        }
     }
-    */
+
 
 }
 
@@ -75,13 +82,19 @@ extension CalendarViewController: CVCalendarViewDelegate {
     }
     
     func shouldShowWeekdaysOut() -> Bool {
-        return shouldShowDaysOut
+        return self.shouldShowDaysOut
         //return true
     }
     
     func didSelectDayView(dayView: CVCalendarDayView) {
         let date = dayView.date // return the day tapped
         println("\(calendarView.presentedDate.commonDescription) is selected!")
+        
+        // Check if there is any record on date selected
+        
+        
+        // Perform segue
+        //performSegueWithIdentifier("showRecords", sender: nil)
     }
     
     func presentedDateUpdated(date: CVDate) {
@@ -164,7 +177,15 @@ extension CalendarViewController: CVCalendarViewDelegate {
 // MARK: - IB Actions
 
 extension CalendarViewController {
-
+    
+    
+    @IBAction func addNewRecord(sender: UIButton) {
+    }
+    
+    @IBAction func showRecords(sender: UIButton) {
+    }
+    
+    // CVCalendar Methods
     
 //    @IBAction func switchChanged(sender: UISwitch) {
 //        if sender.on {
