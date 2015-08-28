@@ -174,7 +174,7 @@ extension CVCalendarView {
             if !validated {
                 let width = selfSize.width
                 let height: CGFloat
-                let countOfWeeks = CGFloat(5)
+                let countOfWeeks = CGFloat(6)
                 
                 let vSpace = appearance.spaceBetweenWeekViews!
                 let hSpace = appearance.spaceBetweenDayViews!

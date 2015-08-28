@@ -227,4 +227,31 @@ class RegistryDAO {
         
         return results
     }
+    /**
+    Used to get a list of Registries data on a range of NSDate
+    
+    :param: startDate   NSDate with start date of search
+    :param: endDate     NSDate with end date of search
+    
+    :returns: array of Registry
+    */
+    static func getOrderedRegistriesWithDateRange(startDate : NSDate, endDate: NSDate) -> [Registry] {
+        // creating fetch request
+        let request = NSFetchRequest(entityName: "Registry")
+        
+        // assign predicate
+        let predicate = NSPredicate(format: "dateChosen >= %@ AND dateChosen <= %@", startDate,endDate)
+        request.predicate = predicate
+        
+        // assign descriptor
+        let sortDescriptor = NSSortDescriptor(key: "dateChosen", ascending: true)
+        let sortDescriptors = [sortDescriptor]
+        request.sortDescriptors = sortDescriptors
+        
+        // perform search
+        var error:NSErrorPointer = nil
+        let results:[Registry] = DatabaseManager.sharedInstance.managedObjectContext?.executeFetchRequest(request, error: error) as! [Registry]
+        
+        return results
+    }
 }
