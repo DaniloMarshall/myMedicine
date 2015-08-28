@@ -15,6 +15,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     @IBOutlet weak var searchType: UISegmentedControl!
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var searchOption: UISegmentedControl!
+    @IBOutlet weak var searchTypeText: UILabel!
     
     
     // testing search function
@@ -47,8 +48,16 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
         super.viewDidLoad()
         
-       // self.resultSearchController = ({
-//          let controller = UISearchController(searchResultsController: nil)
+        searchType.addTarget(self, action: "segmentedControlAction:", forControlEvents: .ValueChanged)
+        
+        
+        searchTypeText.hidden = false
+        
+        
+
+        
+        
+        
             self.controller.searchResultsUpdater = self
             self.controller.dimsBackgroundDuringPresentation = false
             self.controller.searchBar.sizeToFit()
@@ -56,14 +65,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             self.controller.delegate = self
             self.controller.searchBar.delegate = self
             self.definesPresentationContext = true
-            self.providesPresentationContextTransitionStyle = true
         
+            searchTypeText.text = "Faça sua pesquisa por Sintomas"
+            searchTypeText.sizeToFit()
         
             
             self.resultsTable.tableHeaderView = self.controller.searchBar
-//            return self.controller
-//        
-//        })()
+
         
         resultsTable.delegate = self
         resultsTable.dataSource = self
@@ -77,6 +85,23 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
     }
     
+    
+    @IBAction func segmentedControlAction(sender: AnyObject) {
+        
+        if(searchType.selectedSegmentIndex == 0)
+        {
+            searchTypeText.text = "Faça sua pesquisa por Sintomas"
+            searchTypeText.sizeToFit()
+;
+        }
+        else if(searchType.selectedSegmentIndex == 1)
+        {
+            searchTypeText.text = "Faça sua pesquisa por Medicamentos"
+            searchTypeText.sizeToFit()
+;
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -95,7 +120,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
-        //resultsTable.hidden = false
+        searchTypeText.hidden = true
         controller.searchBar.showsCancelButton = true
         controller.searchBar.hidden = false
         resultsTable.reloadData()
@@ -121,6 +146,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
         resultsTable.reloadData()
+        searchTypeText.hidden = false
 
         // Clear any search criteria
         controller.searchBar.text = ""
@@ -184,6 +210,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
                     //cell.textLabel?.text = ""
                     //tableView.allowsSelection = false
                     cell.hidden = true
+//                    searchTypeText.text = "Faça sua pesquisa por sintomas"
+//                    searchTypeText.sizeToFit()
+                    
                     return cell
                 }
 
@@ -199,6 +228,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
                     //cell.textLabel?.text = ""
                     //tableView.allowsSelection = false
                     cell.hidden = true
+                    searchTypeText.text = "Faça sua pesquisa por medicamentos"
+                    searchTypeText.sizeToFit()
+
                     return cell
                 }
             default:
@@ -245,9 +277,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
         let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
         
-        if (cell?.textLabel?.text != ""){
+        
             performSegueWithIdentifier("segueSearch", sender: indexPath)
-        }
+        
     }
     
     //segue

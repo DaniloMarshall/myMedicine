@@ -294,17 +294,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="searchTypeText" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wN-eo-oev">
+                                <rect key="frame" x="16" y="278" width="568" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xuV-42-0jV" firstAttribute="top" secondItem="f0K-Rn-b9O" secondAttribute="bottom" constant="10" id="9F0-gK-HaY"/>
                             <constraint firstItem="eUO-XS-h4s" firstAttribute="leading" secondItem="4kV-5w-upZ" secondAttribute="leadingMargin" id="MqG-Se-8fD"/>
+                            <constraint firstAttribute="centerY" secondItem="4wN-eo-oev" secondAttribute="centerY" id="Tb2-3J-0wh"/>
                             <constraint firstItem="f0K-Rn-b9O" firstAttribute="leading" secondItem="4kV-5w-upZ" secondAttribute="leadingMargin" id="XwQ-KH-pbj"/>
                             <constraint firstItem="eUO-XS-h4s" firstAttribute="top" secondItem="zD5-Pa-Sbx" secondAttribute="bottom" constant="5" id="cE7-Co-pwL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f0K-Rn-b9O" secondAttribute="trailing" id="krx-1X-Jgt"/>
                             <constraint firstAttribute="centerY" secondItem="eUO-XS-h4s" secondAttribute="centerY" id="lNZ-Zk-AUX"/>
                             <constraint firstItem="eUO-XS-h4s" firstAttribute="trailing" secondItem="4kV-5w-upZ" secondAttribute="trailingMargin" id="op4-qZ-9w9"/>
                             <constraint firstItem="f0K-Rn-b9O" firstAttribute="top" secondItem="eUO-XS-h4s" secondAttribute="bottom" constant="5" id="x3D-t5-Fl3"/>
+                            <constraint firstAttribute="centerX" secondItem="4wN-eo-oev" secondAttribute="centerX" id="yfJ-rA-pzn"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -318,6 +326,7 @@
                         <outlet property="searchDisplayController" destination="3UQ-cB-dfi" id="Fp2-P6-7rS"/>
                         <outlet property="searchOption" destination="eUO-XS-h4s" id="GU4-OK-Xnb"/>
                         <outlet property="searchType" destination="eUO-XS-h4s" id="ouE-07-36K"/>
+                        <outlet property="searchTypeText" destination="4wN-eo-oev" id="HaV-7E-hJO"/>
                         <segue destination="5JC-ae-7rY" kind="show" identifier="segueSearch" id="YRO-3k-lJL"/>
                     </connections>
                 </viewController>
