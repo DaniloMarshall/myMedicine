@@ -37,6 +37,7 @@
 		779F1B911B8BFFE100E4763D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F1B901B8BFFE100E4763D /* RegisterViewController.swift */; };
 		779F1B931B8BFFF900E4763D /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F1B921B8BFFF900E4763D /* HistoryViewController.swift */; };
 		779F1B951B8C04A200E4763D /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779F1B941B8C04A200E4763D /* ReminderViewController.swift */; };
+		77E78ADD1B90AF0400B87189 /* AddRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E78ADC1B90AF0400B87189 /* AddRegisterViewController.swift */; };
 		77E7B9921B8F40A3003976E5 /* CVAuxiliaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B9781B8F40A3003976E5 /* CVAuxiliaryView.swift */; };
 		77E7B9931B8F40A3003976E5 /* CVCalendarContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B9791B8F40A3003976E5 /* CVCalendarContentViewController.swift */; };
 		77E7B9941B8F40A3003976E5 /* CVCalendarDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B97A1B8F40A3003976E5 /* CVCalendarDayView.swift */; };
@@ -111,6 +112,7 @@
 		779F1B901B8BFFE100E4763D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		779F1B921B8BFFF900E4763D /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		779F1B941B8C04A200E4763D /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		77E78ADC1B90AF0400B87189 /* AddRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRegisterViewController.swift; sourceTree = "<group>"; };
 		77E7B9781B8F40A3003976E5 /* CVAuxiliaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVAuxiliaryView.swift; sourceTree = "<group>"; };
 		77E7B9791B8F40A3003976E5 /* CVCalendarContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarContentViewController.swift; sourceTree = "<group>"; };
 		77E7B97A1B8F40A3003976E5 /* CVCalendarDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVCalendarDayView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				779F1B921B8BFFF900E4763D /* HistoryViewController.swift */,
 				779F1B941B8C04A200E4763D /* ReminderViewController.swift */,
 				85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */,
+				77E78ADC1B90AF0400B87189 /* AddRegisterViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				7640C7031B8FE91E0019D28D /* Registry.swift in Sources */,
 				77E7B9A91B8F40A3003976E5 /* CVSelectionType.swift in Sources */,
 				77E7B9961B8F40A3003976E5 /* CVCalendarManager.swift in Sources */,
+				77E78ADD1B90AF0400B87189 /* AddRegisterViewController.swift in Sources */,
 				7640C70D1B8FE9260019D28D /* RegistryServices.swift in Sources */,
 				779F1B8F1B8BFFA200E4763D /* CalendarViewController.swift in Sources */,
 				77E7B9A21B8F40A3003976E5 /* CVCalendarViewPresentationMode.swift in Sources */,
@@ -490,18 +494,9 @@
 				7640C7051B8FE91E0019D28D /* Symptom.swift in Sources */,
 				77E7B99E1B8F40A3003976E5 /* CVCalendarViewAnimatorDelegate.swift in Sources */,
 				77E7B9A41B8F40A3003976E5 /* CVCalendarWeekday.swift in Sources */,
-				7640C6CE1B8CABFE0019D28D /* Specialist.swift in Sources */,
-				76E08E4D1B8C08690065FA1C /* SpecialistDAO.swift in Sources */,
 				85F3B2701B8F4AA300583284 /* DetailsViewController.swift in Sources */,
 				85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */,
-				76E08E4F1B8C08980065FA1C /* SymptomDAO.swift in Sources */,
-				76E08E511B8C08B10065FA1C /* MedicineDAO.swift in Sources */,
-				76E08E5B1B8C8C080065FA1C /* Medicine.swift in Sources */,
-				76E08E591B8C84200065FA1C /* SharedServices.swift in Sources */,
-				76E08E3F1B8B62D70065FA1C /* DatabaseManager.swift in Sources */,
-				76E08E571B8C118D0065FA1C /* MedicineServices.swift in Sources */,
-				76E08E531B8C112E0065FA1C /* SpecialistServices.swift in Sources */,
-				76E08E421B8B633B0065FA1C /* MyMedicine.xcdatamodeld in Sources */,
+				76E08E421B8B633B0065FA1C /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

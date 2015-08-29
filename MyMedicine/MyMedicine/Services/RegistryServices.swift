@@ -131,16 +131,14 @@ class RegistryServices {
     }
     
     /**
-    Used to get all registries from database from current month
+    Used to get all registries from database from specific month
     
-    :param: nil
+    :param: date    NSDate of any day of the month that will request the registries
     
     :returns: array of Registry
     */
-    static func getRegistryListFromCurrentMonth() -> [Registry] {
-        let currentDate = NSDate()
-        
-        return RegistryDAO.getOrderedRegistriesWithDateRange(currentDate.startOfMonth()!, endDate: currentDate.endOfMonth()!)
+    static func getRegistryListFromCurrentMonth(date : NSDate) -> [Registry] {
+        return RegistryDAO.getOrderedRegistriesWithDateRange(date.startOfMonth()!, endDate: date.endOfMonth()!)
     }
     
     
@@ -182,6 +180,8 @@ extension NSDate {
         
         return calendar.dateByAddingComponents(months, toDate: self, options: nil)
     }
+    
+    // let date = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: 3, toDate: NSDate(), options: [])
     
     func endOfMonth() -> NSDate? {
         
