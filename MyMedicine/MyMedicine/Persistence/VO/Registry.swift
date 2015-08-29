@@ -13,6 +13,7 @@ enum TypeRegistry : Int16 {
     case medicine = 0
     case specialist = 1
     case symptom = 2
+    case unknown = -1
 }
 
 class Registry: NSManagedObject {

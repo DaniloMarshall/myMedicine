@@ -131,6 +131,18 @@ class RegistryServices {
     }
     
     /**
+    Used to get all registries from database from specific month
+    
+    :param: date    NSDate of any day of the month that will request the registries
+    
+    :returns: array of Registry
+    */
+    static func getRegistryListFromCurrentMonth(date : NSDate) -> [Registry] {
+        return RegistryDAO.getOrderedRegistriesWithDateRange(date.startOfMonth()!, endDate: date.endOfMonth()!)
+    }
+    
+    
+    /**
     Used to get a registry from the database using a registry name
     
     :param: registryID        NSNumber with id of a registry
@@ -144,5 +156,44 @@ class RegistryServices {
             println("No registry found with id \"\(registry)\"")
         }
         return registry!
+    }
+}
+
+
+// MARK: NSDate Extension
+extension NSDate {
+    
+    func startOfMonth() -> NSDate? {
+        
+        let calendar = NSCalendar.currentCalendar()
+        let currentDateComponents = calendar.components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: self)
+        let startOfMonth = calendar.dateFromComponents(currentDateComponents)
+        
+        return startOfMonth
+    }
+    
+    func dateByAddingMonths(monthsToAdd: Int) -> NSDate? {
+        
+        let calendar = NSCalendar.currentCalendar()
+        let months = NSDateComponents()
+        months.month = monthsToAdd
+        
+        return calendar.dateByAddingComponents(months, toDate: self, options: nil)
+    }
+    
+    // let date = NSCalendar.currentCalendar().dateByAddingUnit(.Month, value: 3, toDate: NSDate(), options: [])
+    
+    func endOfMonth() -> NSDate? {
+        
+        let calendar = NSCalendar.currentCalendar()
+        if let plusOneMonthDate = dateByAddingMonths(1) {
+            let plusOneMonthDateComponents = calendar.components(.CalendarUnitYear | .CalendarUnitMonth, fromDate: plusOneMonthDate)
+            
+            let endOfMonth = calendar.dateFromComponents(plusOneMonthDateComponents)?.dateByAddingTimeInterval(-1)
+            
+            return endOfMonth
+        }
+        
+        return nil
     }
 }
