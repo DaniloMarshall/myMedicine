@@ -12,7 +12,19 @@ class AddRegisterViewController: UIViewController, UIPickerViewDataSource, UIPic
 
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var selectedDate: UILabel!
-    @IBOutlet weak var datePickerAction: AnyObject!
+    @IBOutlet weak var amountDaysOff: UITextField!
+    @IBOutlet weak var amountDaysOn: UITextField!
+    @IBOutlet weak var amountDaysPeriod: UITextField!
+    @IBOutlet weak var note: UITextView!
+    @IBOutlet weak var isDaily: UISwitch!
+    @IBOutlet weak var isFixedPeriod: UISwitch!
+    @IBOutlet weak var hasDaysOff: UISwitch!
+    @IBOutlet weak var typeRegistry: UIPickerView!
+  
+    let typeRegistryOptions: [TypeRegistry] = [TypeRegistry.medicine, TypeRegistry.specialist, TypeRegistry.symptom]
+    
+    let typeRegistryNames: [String] = ["Remédio", "Especialista", "Sintoma"]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +43,15 @@ class AddRegisterViewController: UIViewController, UIPickerViewDataSource, UIPic
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func datePickerAction(sender: AnyObject) {
-        
-        // sets the selected date to selectedLabel
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        var strDate = dateFormatter.stringFromDate(datePicker.date)
-        self.selectedDate.text = strDate
-        
-    }
+//    @IBAction func datePickerAction(sender: AnyObject) {
+//        
+//        // sets the selected date to selectedLabel
+//        var dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+//        var strDate = dateFormatter.stringFromDate(datePicker.date)
+//        self.selectedDate.text = strDate
+//        
+//    }
     
     // returns the number of 'columns' to display.
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -48,10 +60,15 @@ class AddRegisterViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     // returns the # of rows in each component..
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 5
+        return typeRegistryNames.count
     }
-
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return typeRegistryNames[row]
+    }
+    
     @IBAction func addRegistry(sender: UIButton) {
+       
         /*
             Jhen, adiciona registro nessa parte
             dateChosen é a data do pickerview, a data que vai ter o registro
@@ -65,7 +82,29 @@ class AddRegisterViewController: UIViewController, UIPickerViewDataSource, UIPic
             amountDaysPeriod   se for true na parte de periodo, esse valor vai ser verificado. No caso de anti-concepcional que não sabe o número de dias que vai tomar (pode ser para sempre), coloque 0
             note   alguma observação que o usuário tenha colocado
         */
-        //RegistryServices.createRegistry(<#dateChosen: NSDate#>, type: <#TypeRegistry#>, isDaily: <#Bool#>, isFixedPeriod: <#Bool#>, hasDaysOff: <#Bool#>, amountDaysOff: <#Int32#>, amountDaysOn: <#Int32#>, amountDaysPeriod: <#Int32#>, note: <#String#>)
+//        RegistryServices.createRegistry(
+//            dateChosen: datePicker.date,
+//            type: typeRegistryOptions[typeRegistry.selectedRowInComponent(0)].rawValue,
+//            isDaily: isDaily.on,
+//            isFixedPeriod: isFixedPeriod.on,
+//            hasDaysOff: hasDaysOff.on,
+//            amountDaysOff: amountDaysOff.text,
+//            amountDaysOn: amountDaysOn.text,
+//            amountDaysPeriod: amountDaysPeriod.text,
+//            note: note.text
+//        )
+//        
+        
+//        dateChosen: datePicker.date,
+//        type: typeRegistryOptions[typeRegistry.selectedRowInComponent(0)],
+//        isDaily: isDaily.on,
+//        isFixedPeriod: isFixedPeriod.on,
+//        hasDaysOff: hasDaysOff.on,
+//        amountDaysOff: amountDaysOff.text,
+//        amountDaysOn: amountDaysOn.text,
+//        amountDaysPeriod: amountDaysPeriod.text,
+//        note: note.text
+        
         navigationController?.popViewControllerAnimated(true)
     }
     /*
