@@ -174,4 +174,38 @@ class SharedServices {
         return MedicineDAO.getMedicinesList()
     }
 
+    
+    static func filterRegistries(registryList: [Registry], filter: TypeRegistry) -> [Registry] {
+        var newList : [Registry]! = nil
+        
+        for var i = 0; i < registryList.count; i++ {
+            if registryList[i].typeEnum == filter {
+                newList.append(registryList[i])
+            }
+        }
+        
+        return newList
+    }
+    
+    static func getAllElementsList() -> Dictionary<String,TypeRegistry> {
+        var newDict = Dictionary<String,TypeRegistry>()
+        
+        let symptomsList = RetrieveSavedSymptoms()
+        let specialistList = RetrieveSavedSpecialists()
+        let medicinesList = RetrieveSavedMedicines()
+        
+        for symptom in symptomsList {
+            newDict[symptom.name] = TypeRegistry.symptom
+        }
+        
+        for specialist in specialistList {
+            newDict[specialist.name] = TypeRegistry.specialist
+        }
+        
+        for medicine in medicinesList {
+            newDict[medicine.name] = TypeRegistry.medicine
+        }
+        
+        return newDict
+    }
 }
