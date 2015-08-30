@@ -25,6 +25,7 @@ class CalendarViewController: UIViewController {
     // Data Manipulation variables
     var hasRecordsForSelectedDate : Bool = false
     var fullRecordsList : [Registry]! = nil
+    var dailyRecordsList : [Registry]! = nil
     
     var currentMonthRecordsList : [Registry]! = nil
     var currentMonthDaysList : [Int] = [Int](count: daysArraySize, repeatedValue: 0)
@@ -87,14 +88,21 @@ class CalendarViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "addRegister" {
-            let registerVC : AddRegisterViewController = segue.destinationViewController as! AddRegisterViewController
+            let addRegisterVC : AddRegisterViewController = segue.destinationViewController as! AddRegisterViewController
         }
         else if segue.identifier == "showRecords" {
             let registerVC : RegisterViewController = segue.destinationViewController as! RegisterViewController
+            if hasRecordsForSelectedDate {
+                registerVC.isFromSpecificDay = true
+                registerVC.recordsList = dailyRecordsList
+                
+            }
+            else {
+                registerVC.recordsList = fullRecordsList
+                registerVC.isFromSpecificDay = false
+            }
         }
     }
-
-
 }
 
 // MARK: Data Manipulation
@@ -243,10 +251,13 @@ extension CalendarViewController: CVCalendarViewDelegate {
         println("\(calendarView.presentedDate.commonDescription) is selected!")
         
         // Check if there is any record on date selected
+        let day = dayView.date.day
         
+        // get registries for this day
+        dailyRecordsList = getDottedRegistries(day, amount: currentMonthDaysList[day])
         
         // Perform segue
-        //performSegueWithIdentifier("showRecords", sender: nil)
+        performSegueWithIdentifier("showRecords", sender: nil)
     }
     
     func presentedDateUpdated(date: CVDate) {
