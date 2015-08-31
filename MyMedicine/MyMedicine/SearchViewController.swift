@@ -61,7 +61,18 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         searchTypeText.hidden = false
         
         
+        self.controller.searchBar.barTintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+        self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
+        let view: UIView = self.controller.searchBar.subviews[0] as! UIView
+        let subViewsArray = view.subviews
+        
+        for (subView: UIView) in subViewsArray as! [UIView] {
+            println(subView)
+            if subView.isKindOfClass(UITextField){
+                subView.tintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+            }
+        }
         
         
         
@@ -99,12 +110,15 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         {
             searchTypeText.text = "Faça sua pesquisa por Sintomas"
             searchTypeText.sizeToFit()
+            controller.searchBar.text = ""
 ;
         }
         else if(searchType.selectedSegmentIndex == 1)
         {
             searchTypeText.text = "Faça sua pesquisa por Medicamentos"
             searchTypeText.sizeToFit()
+            controller.searchBar.text = ""
+
 ;
         }
         

@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2AA0E074-2920-4D2C-BADE-4675E03AD41E</string>
+	<string>7B86B7C6-AFB9-4AB3-BD32-8A348D21CDF1</string>
 	<key>IDESourceControlProjectName</key>
-	<string>MyMedicine</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>ACA8BB261C3EC7BFF34A096F0CD3A4DD5FE3B6C1</key>
 		<string>https://github.com/DaniloMarshall/myMedicine.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MyMedicine/MyMedicine.xcodeproj</string>
+	<string>MyMedicine/MyMedicine.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>ACA8BB261C3EC7BFF34A096F0CD3A4DD5FE3B6C1</key>
