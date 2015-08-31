@@ -2,7 +2,7 @@
 //  Medicine.swift
 //  MyMedicine
 //
-//  Created by Danilo S Marshall on 8/25/15.
+//  Created by Danilo S Marshall on 8/27/15.
 //  Copyright (c) 2015 MedCare. All rights reserved.
 //
 
@@ -16,16 +16,17 @@ enum TypeMedicine : Int16 {
     case phytotherapic = 3
 }
 
-@objc class Medicine: NSManagedObject {
+class Medicine: NSManagedObject {
 
-    @NSManaged var name: String
-    @NSManaged var type: Int16
-    @NSManaged var informationLeaflet: NSData
-    @NSManaged var descriptionSummary: String
-    @NSManaged var posology: String
     @NSManaged var adverseEffects: String
     @NSManaged var contraindication: String
+    @NSManaged var descriptionSummary: String
+    @NSManaged var informationLeaflet: NSData
+    @NSManaged var name: String
     @NSManaged var photo: NSData
+    @NSManaged var posology: String
+    @NSManaged var type: Int16
+    @NSManaged var registries: NSOrderedSet
     @NSManaged var relatedMeds: NSSet
     
     // Implementing accessors for enum types

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  SpecialistServices.swift
 //  MyMedicine
 //
 //  Created by Danilo S Marshall on 8/24/15.
@@ -54,11 +54,11 @@ class SpecialistServices {
     {
         // create operation
         let deleteOperation : NSBlockOperation = NSBlockOperation(block: {
-            // find company
+            // find specialist
             var specialist:Specialist? = SpecialistDAO.findFirstByName(name)
             if (specialist != nil)
             {
-                // delete company
+                // delete specialist
                 SpecialistDAO.delete(specialist!)
             }
         })
