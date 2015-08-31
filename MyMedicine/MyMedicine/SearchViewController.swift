@@ -24,10 +24,10 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     
     
     
-    var symptomsList = SharedServices.RetrieveSavedSymptoms()
+    var symptomsList : [Symptom]! = nil
     var filteredSymptomsList = [Symptom]()
     
-    var medicineList = SharedServices.RetrieveSavedMedicines()
+    var medicineList : [Medicine]! = nil
     var filteredMedicineList = [Medicine]()
     
 //    var resultSearchController = UISearchController()
@@ -38,6 +38,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     let controller = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
+        
+        print("didLoad Search")
+        
+        SharedServices.CheckSavedData()
+        
+        symptomsList = SharedServices.RetrieveSavedSymptoms()
+        medicineList = SharedServices.RetrieveSavedMedicines()
         
         for medicine in medicineList {
             
@@ -54,23 +61,23 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         searchTypeText.hidden = false
         
         
-
         
         
         
-            self.controller.searchResultsUpdater = self
-            self.controller.dimsBackgroundDuringPresentation = false
-            self.controller.searchBar.sizeToFit()
-            self.controller.hidesNavigationBarDuringPresentation = false
-            self.controller.delegate = self
-            self.controller.searchBar.delegate = self
-            self.definesPresentationContext = true
         
-            searchTypeText.text = "Faça sua pesquisa por Sintomas"
-            searchTypeText.sizeToFit()
+        self.controller.searchResultsUpdater = self
+        self.controller.dimsBackgroundDuringPresentation = false
+        self.controller.searchBar.sizeToFit()
+        self.controller.hidesNavigationBarDuringPresentation = false
+        self.controller.delegate = self
+        self.controller.searchBar.delegate = self
+        self.definesPresentationContext = true
         
-            
-            self.resultsTable.tableHeaderView = self.controller.searchBar
+        searchTypeText.text = "Faça sua pesquisa por Sintomas"
+        searchTypeText.sizeToFit()
+        
+        
+        self.resultsTable.tableHeaderView = self.controller.searchBar
 
         
         resultsTable.delegate = self
