@@ -18,10 +18,10 @@ class LeafletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //will load the medcine's leaflet - not implemented yet
         if let object: AnyObject = currentLeaflet{
         
-        
-        
+        //load the leaflet pdf
         var pdfLoc = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("airSalompas", ofType:"pdf")!) //replace PDF_file with your pdf die name
         var request = NSURLRequest(URL: pdfLoc!);
         self.leafletView?.loadRequest(request);

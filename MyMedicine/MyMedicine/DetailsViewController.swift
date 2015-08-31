@@ -9,11 +9,13 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-
+    
     var currentObject: AnyObject!
     
+    //scroll init
     @IBOutlet weak var scroll: UIScrollView!
     
+    //labels block init
     @IBOutlet weak var Description: UILabel!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var typeMed: UILabel!
@@ -25,25 +27,30 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var contraIndicationTitle: UILabel!
     @IBOutlet weak var typeTitle: UILabel!
     
+    //button init
     @IBOutlet weak var leafletButton: UIButton!
-   
-   
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         
     }
-
-
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         
+        //the details page will load different info in accordance with the respective medicine
         
-        if let object = currentObject as? Symptom{
+        if let object = currentObject as? Symptom{ //symptom case
             
+            //load the info
             name.text = object.name as String
             Description.text = object.descriptionTxt as String
+            
+            //keeps unused info hidden
             posology.hidden = true
             posologyTitle.hidden = true
             adverseEffects.hidden = true
@@ -56,18 +63,20 @@ class DetailsViewController: UIViewController {
             
             Description.numberOfLines = 0
             Description.sizeToFit()
-         
             
-            }
-        
-        else if let object = currentObject as? Medicine{
             
+        }
+            
+        else if let object = currentObject as? Medicine{ //medicine case
+            
+            //load info
             name.text = object.name as String
             Description.text = object.descriptionSummary as String
             posology.text = object.posology as String
             adverseEffects.text = object.adverseEffects as String
             contraIndication.text = object.contraindication as String
             
+            //for the type we have to discover the return for the enum - suggest to change the return type of typeEnum to the string for structural organization
             switch object.type{
                 
             case 0:
@@ -81,8 +90,8 @@ class DetailsViewController: UIViewController {
             default:
                 break
             }
-
-
+            
+            //layout for text
             name.numberOfLines = 0
             name.sizeToFit()
             Description.numberOfLines = 0
@@ -94,55 +103,39 @@ class DetailsViewController: UIViewController {
             adverseEffects.numberOfLines = 0
             adverseEffects.sizeToFit()
             
-           
-        }
             
-        
-        
-        
+        }
         
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    
-    
+    //leaflet button behaviour: will perform segue to webview
     
     @IBAction func segue(sender: UIButton) {
-     
-        performSegueWithIdentifier("segueLeaflet", sender: leafletButton)
-
         
-
-
-    
+        performSegueWithIdentifier("segueLeaflet", sender: leafletButton)
+        
     }
     
     //prepare for segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "segueLeaflet"{
-            
-            
             if let destination = segue.destinationViewController  as? LeafletViewController{
                 
                 destination.currentLeaflet = self.currentObject
-
+                
             }
             
             
         }
         
     }
-
+    
     
 }
 

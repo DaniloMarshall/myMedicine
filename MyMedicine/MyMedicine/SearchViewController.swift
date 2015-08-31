@@ -23,6 +23,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     //var filteredTest = [String]()
     
     
+    //initialize symptoms and medicine lists and filtered lists variables
     
     var symptomsList : [Symptom]! = nil
     var filteredSymptomsList = [Symptom]()
@@ -30,37 +31,34 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     var medicineList : [Medicine]! = nil
     var filteredMedicineList = [Medicine]()
     
-//    var resultSearchController = UISearchController()
     
-    
-    
-
+    //controller initializer
     let controller = UISearchController(searchResultsController: nil)
+    
     
     override func viewDidLoad() {
         
-        print("didLoad Search")
-        
+        //calls DB
         SharedServices.CheckSavedData()
         
+        //Save data in variables
         symptomsList = SharedServices.RetrieveSavedSymptoms()
         medicineList = SharedServices.RetrieveSavedMedicines()
         
-        for medicine in medicineList {
-            
-            println(medicine.name)
-            
-            
-        }
+//        //test if list has the right values
+//        for medicine in medicineList {
+//            println(medicine.name)
+//        }
         
         super.viewDidLoad()
         
+        //adding target to seg control change
         searchType.addTarget(self, action: "segmentedControlAction:", forControlEvents: .ValueChanged)
         
-        
+        //shows initial message
         searchTypeText.hidden = false
         
-        
+        //search bar appearance
         self.controller.searchBar.barTintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
@@ -75,7 +73,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         }
         
         
-        
+        //setting delegates
         self.controller.searchResultsUpdater = self
         self.controller.dimsBackgroundDuringPresentation = false
         self.controller.searchBar.sizeToFit()
@@ -84,19 +82,21 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         self.controller.searchBar.delegate = self
         self.definesPresentationContext = true
         
+        //default text for search tab
         searchTypeText.text = "Faça sua pesquisa por Sintomas"
         searchTypeText.sizeToFit()
         
-        
+        //creates a search bar as header for the table view
         self.resultsTable.tableHeaderView = self.controller.searchBar
 
-        
+        //yay, more delegates...
         resultsTable.delegate = self
         resultsTable.dataSource = self
         
         // Do any additional setup after loading the view.
         SharedServices.CheckSavedData()
         
+        //load results table
         resultsTable.hidden = false
         self.resultsTable.reloadData()
         resultsTable.tableFooterView = UIView()
@@ -104,22 +104,25 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     }
     
     
+    //segmented control behaviour
     @IBAction func segmentedControlAction(sender: AnyObject) {
         
-        if(searchType.selectedSegmentIndex == 0)
-        {
+        //each option has a deafault message
+        
+        if(searchType.selectedSegmentIndex == 0){
+            
             searchTypeText.text = "Faça sua pesquisa por Sintomas"
             searchTypeText.sizeToFit()
             controller.searchBar.text = ""
-;
+            
         }
-        else if(searchType.selectedSegmentIndex == 1)
-        {
+        
+        else if(searchType.selectedSegmentIndex == 1){
+            
             searchTypeText.text = "Faça sua pesquisa por Medicamentos"
             searchTypeText.sizeToFit()
             controller.searchBar.text = ""
 
-;
         }
         
     }
@@ -130,34 +133,30 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     }
     
     override func viewWillDisappear(animated: Bool) {
-       
-        
         super.viewWillDisappear(animated)
-        
-        
-        
-        
     }
     
+    //search bar text begins editing
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
-        searchTypeText.hidden = true
-        controller.searchBar.showsCancelButton = true
-        controller.searchBar.hidden = false
-        resultsTable.reloadData()
+        searchTypeText.hidden = true //hides default message
+        controller.searchBar.showsCancelButton = true //enable cancel button
+        controller.searchBar.hidden = false //keep search up
+        resultsTable.reloadData() //reload data
     }
     
     
-    
+    //search bar end editing
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        controller.searchBar.showsCancelButton = false
-        controller.searchBar.resignFirstResponder()
+        controller.searchBar.showsCancelButton = false //dismiss cancel button
+        controller.searchBar.resignFirstResponder() //dismiss keyboard
     }
     
+    //search clicked
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
-        controller.searchBar.showsCancelButton = false
-        controller.searchBar.text = ""
+        controller.searchBar.showsCancelButton = false //dismiss cancel button
+        controller.searchBar.text = ""  //clears text field
         
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
@@ -166,8 +165,9 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     // Cancel buttom behaviour
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
+        
         resultsTable.reloadData()
-        searchTypeText.hidden = false
+        searchTypeText.hidden = false //shows default text
 
         // Clear any search criteria
         controller.searchBar.text = ""
@@ -175,16 +175,16 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
-        
+        //dismiss cancel button
         controller.searchBar.showsCancelButton = false
     }
     
     
     
-    //retornos para a tableview da busca
+    //returns number of rows for search table
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
+        //search for each option - symptom or medicine
         switch searchOption.selectedSegmentIndex{
         
             case 0:
@@ -213,27 +213,26 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
     }
     
-    //cria as células-resultado na tabela de busca
+    // creates the results' cells
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        //init cell
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
         
+        //cases for type of search
         switch searchOption.selectedSegmentIndex{
 
             case 0:
             
                 if (self.controller.active){
+                    
                     cell.textLabel?.text = filteredSymptomsList[indexPath.row].name
                     return cell
                 }
                 
                 else {
-                    //cell.textLabel?.text = ""
-                    //tableView.allowsSelection = false
-                    cell.hidden = true
-//                    searchTypeText.text = "Faça sua pesquisa por sintomas"
-//                    searchTypeText.sizeToFit()
                     
+                    cell.hidden = true
                     return cell
                 }
 
@@ -246,12 +245,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
                 }
                 
                 else {
-                    //cell.textLabel?.text = ""
-                    //tableView.allowsSelection = false
                     cell.hidden = true
-                    searchTypeText.text = "Faça sua pesquisa por medicamentos"
-                    searchTypeText.sizeToFit()
-
                     return cell
                 }
             default:
@@ -259,6 +253,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         }
     }
     
+    //keep updating the results for search
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
         
@@ -266,16 +261,17 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         switch searchOption.selectedSegmentIndex{
 
         case 0:
+           
             filteredSymptomsList.removeAll(keepCapacity: false)
             
-            let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text)
-            let array = (symptomsList as NSArray).filteredArrayUsingPredicate(searchPredicate)
-            self.filteredSymptomsList = array as! [Symptom]
+            let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", searchController.searchBar.text) //looking for the right name
+            let array = (symptomsList as NSArray).filteredArrayUsingPredicate(searchPredicate) //initializes an array for the colsest results
+            self.filteredSymptomsList = array as! [Symptom] // save them
             
             self.resultsTable.reloadData()
         
         
-        case 1:
+        case 1: //same as 0, for medicine
             
             filteredMedicineList.removeAll(keepCapacity: false)
             
@@ -313,7 +309,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
                     
 
                     
-                    switch searchOption.selectedSegmentIndex{
+                    switch searchOption.selectedSegmentIndex{ // creates the right object for destination
 
                     case 0:
                         let row = Int(indexPath)
@@ -325,16 +321,10 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
                     
                     default:
                         break
-                    
                     }
-                    
                 }
-                
             }
-            
-            
         }
-        
     }
 
     
