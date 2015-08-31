@@ -64,6 +64,7 @@
 		77E7B9A91B8F40A3003976E5 /* CVSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B98F1B8F40A3003976E5 /* CVSelectionType.swift */; };
 		77E7B9AA1B8F40A3003976E5 /* CVSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B9901B8F40A3003976E5 /* CVSet.swift */; };
 		77E7B9AB1B8F40A3003976E5 /* CVShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B9911B8F40A3003976E5 /* CVShape.swift */; };
+		8567A2531B94AE1900A09CAD /* LeafletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567A2521B94AE1900A09CAD /* LeafletViewController.swift */; };
 		85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B2691B8E008E00583284 /* ResultsTableCell.swift */; };
 		85F3B2701B8F4AA300583284 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */; };
 		85F6E3891B90D53800D04431 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F6E3881B90D53800D04431 /* TabViewController.swift */; };
@@ -140,6 +141,7 @@
 		77E7B98F1B8F40A3003976E5 /* CVSelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVSelectionType.swift; sourceTree = "<group>"; };
 		77E7B9901B8F40A3003976E5 /* CVSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVSet.swift; sourceTree = "<group>"; };
 		77E7B9911B8F40A3003976E5 /* CVShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVShape.swift; sourceTree = "<group>"; };
+		8567A2521B94AE1900A09CAD /* LeafletViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeafletViewController.swift; sourceTree = "<group>"; };
 		85F3B2691B8E008E00583284 /* ResultsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableCell.swift; sourceTree = "<group>"; };
 		85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		85F6E3881B90D53800D04431 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */,
 				77E78ADC1B90AF0400B87189 /* AddRegisterViewController.swift */,
 				85F6E3881B90D53800D04431 /* TabViewController.swift */,
+				8567A2521B94AE1900A09CAD /* LeafletViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				77E7B9A31B8F40A3003976E5 /* CVCalendarWeekContentViewController.swift in Sources */,
 				77E7B9A61B8F40A3003976E5 /* CVDate.swift in Sources */,
 				77E7B9921B8F40A3003976E5 /* CVAuxiliaryView.swift in Sources */,
+				8567A2531B94AE1900A09CAD /* LeafletViewController.swift in Sources */,
 				77E7B9991B8F40A3003976E5 /* CVCalendarMonthContentViewController.swift in Sources */,
 				77E7B9971B8F40A3003976E5 /* CVCalendarMenuView.swift in Sources */,
 				779F1B931B8BFFF900E4763D /* HistoryViewController.swift in Sources */,
