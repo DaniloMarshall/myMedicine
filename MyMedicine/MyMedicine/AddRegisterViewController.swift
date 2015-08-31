@@ -11,7 +11,7 @@ import UIKit
 class AddRegisterViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var selectedDate: UILabel!
+    //@IBOutlet weak var selectedDate: UILabel!
     @IBOutlet weak var amountDaysOff: UITextField!
     @IBOutlet weak var amountDaysOn: UITextField!
     @IBOutlet weak var amountDaysPeriod: UITextField!
@@ -25,16 +25,15 @@ class AddRegisterViewController: UIViewController, UIPickerViewDataSource, UIPic
     
     let typeRegistryNames: [String] = ["Remédio", "Especialista", "Sintoma"]
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // sets current date to selectedLabel
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        let currentDate = NSDate()
-        var strDate = dateFormatter.stringFromDate(currentDate)
-        self.selectedDate.text = strDate
+//        var dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+//        let currentDate = NSDate()
+//        var strDate = dateFormatter.stringFromDate(currentDate)
+//        self.selectedDate.text = strDate
 
     }
 

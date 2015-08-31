@@ -169,90 +169,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOz-ua-Xtz">
-                                <rect key="frame" x="0.0" y="64" width="600" height="191"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QOz-ua-Xtz">
+                                <rect key="frame" x="0.0" y="64" width="600" height="151"/>
                                 <subviews>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Epv-XU-JTy" userLabel="dateChosen Date Picker">
+                                        <rect key="frame" x="8" y="8" width="295" height="130"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="462465641.73085201">
+                                            <!--2015-08-28 14:40:41 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="pt_BR"/>
+                                    </datePicker>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mf8-TP-V27" userLabel="isDaily Switch">
-                                        <rect key="frame" x="496" y="32" width="51" height="31"/>
+                                        <rect key="frame" x="496" y="8" width="51" height="31"/>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiA-np-MAY" userLabel="isFixedPeriod Switch">
-                                        <rect key="frame" x="496" y="80" width="51" height="31"/>
+                                        <rect key="frame" x="496" y="56" width="51" height="31"/>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJX-ds-cSH" userLabel="hasDaysOff Switch">
-                                        <rect key="frame" x="496" y="131" width="51" height="31"/>
+                                        <rect key="frame" x="496" y="107" width="51" height="31"/>
                                     </switch>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79t-5K-GcM" userLabel="amountDaysOff Text Field">
-                                        <rect key="frame" x="55" y="32" width="97" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2XA-Tk-qZa" userLabel="amountDaysOn Text Field">
-                                        <rect key="frame" x="55" y="80" width="97" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thv-yD-s4b" userLabel="amountDaysPeriod Text Field">
-                                        <rect key="frame" x="55" y="132" width="97" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gdm-Eh-vhy" userLabel="note Text View">
-                                        <rect key="frame" x="194" y="34" width="240" height="128"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Remédio diário" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hY-33-sqS">
+                                        <rect key="frame" x="321" y="8" width="116" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Período determinado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aH3-Ur-iHO">
+                                        <rect key="frame" x="321" y="61" width="162" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Possui intervalos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tv1-qM-aOA">
+                                        <rect key="frame" x="321" y="117" width="130" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QOz-ua-Xtz" secondAttribute="height" multiplier="600:191" id="59c-vh-1PS"/>
-                                    <constraint firstAttribute="width" constant="600" id="6SH-3x-JbY"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mz3-l1-KaB">
                                 <rect key="frame" x="0.0" y="243" width="600" height="300"/>
                                 <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="79t-5K-GcM" userLabel="amountDaysOff Text Field">
+                                        <rect key="frame" x="468" y="20" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2XA-Tk-qZa" userLabel="amountDaysOn Text Field">
+                                        <rect key="frame" x="468" y="71" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Thv-yD-s4b" userLabel="amountDaysPeriod Text Field">
+                                        <rect key="frame" x="468" y="119" width="97" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gdm-Eh-vhy" userLabel="note Text View">
+                                        <rect key="frame" x="8" y="198" width="347" height="84"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HT3-sw-g4L">
+                                        <rect key="frame" x="25" y="14" width="161" height="162"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="J30-N0-jHz" id="ZsZ-LE-gbS"/>
+                                            <outlet property="delegate" destination="J30-N0-jHz" id="VDh-PP-fOM"/>
+                                        </connections>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dias intervalo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGD-GI-snj">
+                                        <rect key="frame" x="324" y="24" width="104" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dias tomando" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKe-ew-1aj">
+                                        <rect key="frame" x="324" y="75" width="107" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Período" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zck-9z-igO">
+                                        <rect key="frame" x="324" y="123" width="60" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Descrição:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xh3-Ys-uML">
+                                        <rect key="frame" x="8" y="169" width="82" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVY-FM-Kfh">
-                                        <rect key="frame" x="268" y="270" width="65" height="30"/>
-                                        <state key="normal" title="Adicionar">
+                                        <rect key="frame" x="493" y="262" width="65" height="30"/>
+                                        <state key="normal" title="Registrar">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="addRegistry:" destination="J30-N0-jHz" eventType="touchUpInside" id="3Wq-iK-FZS"/>
                                         </connections>
                                     </button>
-                                    <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Epv-XU-JTy" userLabel="dateChosen Date Picker">
-                                        <rect key="frame" x="285" y="8" width="295" height="162"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="462465641.73085201">
-                                            <!--2015-08-28 14:40:41 +0000-->
-                                        </date>
-                                        <locale key="locale" localeIdentifier="pt_BR"/>
-                                    </datePicker>
-                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HT3-sw-g4L">
-                                        <rect key="frame" x="-185" y="0.0" width="600" height="162"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="J30-N0-jHz" id="ZsZ-LE-gbS"/>
-                                            <outlet property="delegate" destination="J30-N0-jHz" id="VDh-PP-fOM"/>
-                                        </connections>
-                                    </pickerView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="9j2-iQ-fMF"/>
-                                    <constraint firstItem="Epv-XU-JTy" firstAttribute="width" secondItem="mz3-l1-KaB" secondAttribute="height" multiplier="59:60" id="e4O-d1-KlB"/>
                                     <constraint firstAttribute="width" secondItem="mz3-l1-KaB" secondAttribute="height" multiplier="2:1" id="fIF-oP-XXa"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-OZ-qW8">
-                                <rect key="frame" x="279" y="459" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="GGz-ab-SUj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -260,7 +288,6 @@
                             <constraint firstItem="lml-CA-3v6" firstAttribute="top" secondItem="mz3-l1-KaB" secondAttribute="bottom" constant="8" symbolic="YES" id="2d4-Ou-72a"/>
                             <constraint firstAttribute="centerX" secondItem="QOz-ua-Xtz" secondAttribute="centerX" id="8Be-IW-SjR"/>
                             <constraint firstItem="mz3-l1-KaB" firstAttribute="leading" secondItem="QOz-ua-Xtz" secondAttribute="trailing" constant="-600" id="IsH-ww-jN4"/>
-                            <constraint firstItem="lml-CA-3v6" firstAttribute="top" secondItem="Vdc-OZ-qW8" secondAttribute="bottom" constant="71" id="c3c-Qw-uuN"/>
                             <constraint firstItem="QOz-ua-Xtz" firstAttribute="top" secondItem="L34-pw-nBp" secondAttribute="bottom" id="uUP-ik-h01"/>
                         </constraints>
                     </view>
@@ -274,7 +301,6 @@
                         <outlet property="isFixedPeriod" destination="wiA-np-MAY" id="ejq-5W-G7P"/>
                         <outlet property="note" destination="Gdm-Eh-vhy" id="ZFR-7m-QLh"/>
                         <outlet property="searchDisplayController" destination="jaw-nI-oix" id="aLL-eO-NlL"/>
-                        <outlet property="selectedDate" destination="Vdc-OZ-qW8" id="M2B-07-O7E"/>
                         <outlet property="typeRegistry" destination="HT3-sw-g4L" id="V3y-zB-nLg"/>
                     </connections>
                 </viewController>
