@@ -27,20 +27,21 @@ class DetailsViewController: UIViewController {
        
         
     }
-
-    func adjustContentSize() {
-        var contentRect = CGRectZero
-        for view in self.scroll.subviews {
-            contentRect = CGRectUnion(contentRect, view.frame)
-        }
-        
-        self.scroll.contentSize = contentRect.size
-    }
+//
+//    func adjustContentSize() {
+//        var contentRect = CGRectZero
+//        for view in self.scroll.subviews {
+//            contentRect = CGRectUnion(contentRect, view.frame)
+//        }
+//        
+//        self.scroll.contentSize = contentRect.size
+//    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
             
-            
+        self.scroll.contentSize = CGSizeMake(view.frame.size.width, view.frame.size.height*2)
+        
         if let object = currentObject as? Symptom{
             
             name.text = object.name as String
@@ -52,8 +53,8 @@ class DetailsViewController: UIViewController {
             
             Description.numberOfLines = 0
             Description.sizeToFit()
-            adjustContentSize()
-
+//            adjustContentSize()
+         
             
             }
         
@@ -70,16 +71,15 @@ class DetailsViewController: UIViewController {
 
             Description.numberOfLines = 0
             Description.sizeToFit()
-            adjustContentSize()
+//            adjustContentSize()
             
             
         }
             
-            
-            
         
         
-        adjustContentSize()
+        
+//        adjustContentSize()
         
     }
     

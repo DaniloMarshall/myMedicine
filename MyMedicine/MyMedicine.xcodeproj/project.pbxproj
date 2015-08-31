@@ -66,6 +66,7 @@
 		77E7B9AB1B8F40A3003976E5 /* CVShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E7B9911B8F40A3003976E5 /* CVShape.swift */; };
 		85F3B26A1B8E008E00583284 /* ResultsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B2691B8E008E00583284 /* ResultsTableCell.swift */; };
 		85F3B2701B8F4AA300583284 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */; };
+		85F6E3891B90D53800D04431 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F6E3881B90D53800D04431 /* TabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		77E7B9911B8F40A3003976E5 /* CVShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVShape.swift; sourceTree = "<group>"; };
 		85F3B2691B8E008E00583284 /* ResultsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableCell.swift; sourceTree = "<group>"; };
 		85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		85F6E3881B90D53800D04431 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				779F1B941B8C04A200E4763D /* ReminderViewController.swift */,
 				85F3B26F1B8F4AA300583284 /* DetailsViewController.swift */,
 				77E78ADC1B90AF0400B87189 /* AddRegisterViewController.swift */,
+				85F6E3881B90D53800D04431 /* TabViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -390,6 +393,12 @@
 				TargetAttributes = {
 					76E65C631B821A4300311F20 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 2YVM85P4VJ;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					76E65C781B821A4300311F20 = {
 						CreatedOnToolsVersion = 6.4;
@@ -468,6 +477,7 @@
 				7640C7041B8FE91E0019D28D /* Specialist.swift in Sources */,
 				77E7B99B1B8F40A3003976E5 /* CVCalendarTouchController.swift in Sources */,
 				77E7B9941B8F40A3003976E5 /* CVCalendarDayView.swift in Sources */,
+				85F6E3891B90D53800D04431 /* TabViewController.swift in Sources */,
 				77E7B99A1B8F40A3003976E5 /* CVCalendarMonthView.swift in Sources */,
 				77E7B99D1B8F40A3003976E5 /* CVCalendarViewAnimator.swift in Sources */,
 				77E7B9A71B8F40A3003976E5 /* CVRange.swift in Sources */,
@@ -623,9 +633,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyMedicine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -634,9 +647,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MyMedicine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -25,6 +25,7 @@ class CalendarViewController: UIViewController {
     // Data Manipulation variables
     var hasRecordsForSelectedDate : Bool = false
     var fullRecordsList : [Registry]! = nil
+    var dailyRecordsList : [Registry]! = nil
     
     var currentMonthRecordsList : [Registry]! = nil
     var currentMonthDaysList : [Int] = [Int](count: daysArraySize, repeatedValue: 0)
@@ -87,14 +88,21 @@ class CalendarViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "addRegister" {
-            let registerVC : AddRegisterViewController = segue.destinationViewController as! AddRegisterViewController
+            let addRegisterVC : AddRegisterViewController = segue.destinationViewController as! AddRegisterViewController
         }
         else if segue.identifier == "showRecords" {
             let registerVC : RegisterViewController = segue.destinationViewController as! RegisterViewController
+            if hasRecordsForSelectedDate {
+                registerVC.isFromSpecificDay = true
+                registerVC.recordsList = dailyRecordsList
+                
+            }
+            else {
+                registerVC.recordsList = fullRecordsList
+                registerVC.isFromSpecificDay = false
+            }
         }
     }
-
-
 }
 
 // MARK: Data Manipulation
@@ -147,7 +155,7 @@ extension CalendarViewController {
         }
     }
     
-    func getDottedRegistries(day: Int, amount: Int) -> [Registry] {
+    func getDottedRegistries(day: Int, amount: Int) -> [Registry]! {
         var dottedList : [Registry]! = nil
         
         var numRegistriesFound = 0
@@ -243,10 +251,19 @@ extension CalendarViewController: CVCalendarViewDelegate {
         println("\(calendarView.presentedDate.commonDescription) is selected!")
         
         // Check if there is any record on date selected
+        let day = dayView.date.day
         
+        // get registries for this day
+        dailyRecordsList = getDottedRegistries(day, amount: currentMonthDaysList[day])
         
-        // Perform segue
-        //performSegueWithIdentifier("showRecords", sender: nil)
+        if dailyRecordsList == nil {
+            // Perform segue
+            performSegueWithIdentifier("addRegister", sender: nil)
+        }
+        else {
+            // Perform segue
+            performSegueWithIdentifier("showRecords", sender: nil)
+        }
     }
     
     func presentedDateUpdated(date: CVDate) {
@@ -314,6 +331,9 @@ extension CalendarViewController: CVCalendarViewDelegate {
         // get registries for this day
         var listRegistries = getDottedRegistries(day, amount: numRegistries)
         
+        if listRegistries == nil {
+            println("Wasn't expecting empty list for a day that needs dot! Will crash...")
+        }
         
         
         // Check registry for each dotted day

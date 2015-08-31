@@ -30,16 +30,47 @@ class SharedServices {
     :returns: nil
     */
     static func CheckSavedData() {
+        //println("\(defaults)")
+        if let hasDefaultData : Bool = defaults.objectForKey("hasDefaultData") as? Bool {
+            if hasDefaultData {
+                print("hasDefaultData - true\n")
+                // Case where data was already saved at least once
+                defaults.setObject(true, forKey:"hasDefaultData")
+                defaults.synchronize()
+            }
+            else {
+                print("hasDefaultData - false\n")
+                // Case where data was never set
+                CreateFakeData()
+                defaults.setObject(true, forKey:"hasDefaultData")
+                defaults.synchronize()
+            }
+        }
+        else {
+            // Case where data was never set
+            print("hasDefaultData - false\n")
+            // Case where data was never set
+            CreateFakeData()
+            defaults.setObject(true, forKey:"hasDefaultData")
+            defaults.synchronize()
+        }
+        /*
+        //NSLog("%@", defaults)
         if var hasDefaultData = defaults.stringForKey("hasDefaultData") as String!
         {
+            print("hasDefaultData - true\n")
+            //NSLog("hasDefaultData - %@", true)
             // Case where data was already saved at least once
             defaults.setObject("true", forKey: "hasDefaultData") // just making sure variable has correct data
         }
         else {
+            print("hasDefaultData - false\n")
+            //NSLog("hasDefaultData - %@", false)
             // Case where data was never set
             CreateFakeData()
             defaults.setObject("true", forKey: "hasDefaultData")
         }
+        */
     }
     
     /**
@@ -93,6 +124,7 @@ class SharedServices {
         let salompasData = NSData(contentsOfURL: pdfLoc!)
         
         let filePath = NSBundle.mainBundle().pathForResource("medbase",ofType:"json")
+        println("\(filePath)")
         var readError:NSError?
         if let data = NSData(contentsOfFile:filePath!, options:NSDataReadingOptions.DataReadingUncached, error:&readError) {
             let stringData = NSString(data: data, encoding: NSUTF8StringEncoding)
@@ -174,4 +206,38 @@ class SharedServices {
         return MedicineDAO.getMedicinesList()
     }
 
+    
+    static func filterRegistries(registryList: [Registry], filter: TypeRegistry) -> [Registry] {
+        var newList : [Registry]! = nil
+        
+        for var i = 0; i < registryList.count; i++ {
+            if registryList[i].typeEnum == filter {
+                newList.append(registryList[i])
+            }
+        }
+        
+        return newList
+    }
+    
+    static func getAllElementsList() -> Dictionary<String,TypeRegistry> {
+        var newDict = Dictionary<String,TypeRegistry>()
+        
+        let symptomsList = RetrieveSavedSymptoms()
+        let specialistList = RetrieveSavedSpecialists()
+        let medicinesList = RetrieveSavedMedicines()
+        
+        for symptom in symptomsList {
+            newDict[symptom.name] = TypeRegistry.symptom
+        }
+        
+        for specialist in specialistList {
+            newDict[specialist.name] = TypeRegistry.specialist
+        }
+        
+        for medicine in medicinesList {
+            newDict[medicine.name] = TypeRegistry.medicine
+        }
+        
+        return newDict
+    }
 }

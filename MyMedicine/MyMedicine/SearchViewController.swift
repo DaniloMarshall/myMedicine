@@ -9,12 +9,13 @@
 import UIKit
 
 
-class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate {
+class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
     //@IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchType: UISegmentedControl!
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var searchOption: UISegmentedControl!
+    @IBOutlet weak var searchTypeText: UILabel!
     
     
     // testing search function
@@ -23,13 +24,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     
     
     
-    var symptomsList = SharedServices.RetrieveSavedSymptoms()
+    var symptomsList : [Symptom]! = nil
     var filteredSymptomsList = [Symptom]()
     
-    var medicineList = SharedServices.RetrieveSavedMedicines()
+    var medicineList : [Medicine]! = nil
     var filteredMedicineList = [Medicine]()
     
-    var resultSearchController = UISearchController()
+//    var resultSearchController = UISearchController()
     
     
     
@@ -37,6 +38,13 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     let controller = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
+        
+        print("didLoad Search")
+        
+        SharedServices.CheckSavedData()
+        
+        symptomsList = SharedServices.RetrieveSavedSymptoms()
+        medicineList = SharedServices.RetrieveSavedMedicines()
         
         for medicine in medicineList {
             
@@ -47,17 +55,30 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
         super.viewDidLoad()
         
-        self.resultSearchController = ({
-            let controller = UISearchController(searchResultsController: nil)
-            controller.searchResultsUpdater = self
-            controller.dimsBackgroundDuringPresentation = false
-            controller.searchBar.sizeToFit()
-            controller.hidesNavigationBarDuringPresentation = false
-            
-            self.resultsTable.tableHeaderView = controller.searchBar
-            return controller
+        searchType.addTarget(self, action: "segmentedControlAction:", forControlEvents: .ValueChanged)
         
-        })()
+        
+        searchTypeText.hidden = false
+        
+        
+        
+        
+        
+        
+        self.controller.searchResultsUpdater = self
+        self.controller.dimsBackgroundDuringPresentation = false
+        self.controller.searchBar.sizeToFit()
+        self.controller.hidesNavigationBarDuringPresentation = false
+        self.controller.delegate = self
+        self.controller.searchBar.delegate = self
+        self.definesPresentationContext = true
+        
+        searchTypeText.text = "Faça sua pesquisa por Sintomas"
+        searchTypeText.sizeToFit()
+        
+        
+        self.resultsTable.tableHeaderView = self.controller.searchBar
+
         
         resultsTable.delegate = self
         resultsTable.dataSource = self
@@ -67,19 +88,46 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
         resultsTable.hidden = false
         self.resultsTable.reloadData()
+        resultsTable.tableFooterView = UIView()
+        
     }
     
+    
+    @IBAction func segmentedControlAction(sender: AnyObject) {
+        
+        if(searchType.selectedSegmentIndex == 0)
+        {
+            searchTypeText.text = "Faça sua pesquisa por Sintomas"
+            searchTypeText.sizeToFit()
+;
+        }
+        else if(searchType.selectedSegmentIndex == 1)
+        {
+            searchTypeText.text = "Faça sua pesquisa por Medicamentos"
+            searchTypeText.sizeToFit()
+;
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override func viewWillDisappear(animated: Bool) {
+       
+        
+        super.viewWillDisappear(animated)
+        
+        
+        
+        
+    }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
-        //resultsTable.hidden = false
+        searchTypeText.hidden = true
         controller.searchBar.showsCancelButton = true
         controller.searchBar.hidden = false
         resultsTable.reloadData()
@@ -105,6 +153,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
         resultsTable.reloadData()
+        searchTypeText.hidden = false
 
         // Clear any search criteria
         controller.searchBar.text = ""
@@ -125,7 +174,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         switch searchOption.selectedSegmentIndex{
         
             case 0:
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     return self.filteredSymptomsList.count
                 }
                 else{
@@ -134,7 +183,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         
             case 1:
         
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     return self.filteredMedicineList.count
                 }
                 else{
@@ -159,26 +208,36 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
 
             case 0:
             
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     cell.textLabel?.text = filteredSymptomsList[indexPath.row].name
                     return cell
                 }
                 
                 else {
-                    cell.textLabel?.text = ""
+                    //cell.textLabel?.text = ""
+                    //tableView.allowsSelection = false
+                    cell.hidden = true
+//                    searchTypeText.text = "Faça sua pesquisa por sintomas"
+//                    searchTypeText.sizeToFit()
+                    
                     return cell
                 }
 
         
             case 1:
         
-                if (self.resultSearchController.active){
+                if (self.controller.active){
                     cell.textLabel?.text = filteredMedicineList[indexPath.row].name
                     return cell
                 }
                 
                 else {
-                    cell.textLabel?.text = ""
+                    //cell.textLabel?.text = ""
+                    //tableView.allowsSelection = false
+                    cell.hidden = true
+                    searchTypeText.text = "Faça sua pesquisa por medicamentos"
+                    searchTypeText.sizeToFit()
+
                     return cell
                 }
             default:
@@ -222,14 +281,23 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
 
     //prepare for segue
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("segueSearch", sender: indexPath)
+        
+        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+        
+        
+            performSegueWithIdentifier("segueSearch", sender: indexPath)
+        
     }
     
     //segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueSearch"{
+            
+            
             if let destination = segue.destinationViewController  as? DetailsViewController{
                 if let indexPath = resultsTable.indexPathForSelectedRow()?.row{
+                    
+
                     
                     switch searchOption.selectedSegmentIndex{
 
