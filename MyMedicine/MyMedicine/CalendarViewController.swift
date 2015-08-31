@@ -155,7 +155,7 @@ extension CalendarViewController {
         }
     }
     
-    func getDottedRegistries(day: Int, amount: Int) -> [Registry] {
+    func getDottedRegistries(day: Int, amount: Int) -> [Registry]! {
         var dottedList : [Registry]! = nil
         
         var numRegistriesFound = 0
@@ -256,8 +256,14 @@ extension CalendarViewController: CVCalendarViewDelegate {
         // get registries for this day
         dailyRecordsList = getDottedRegistries(day, amount: currentMonthDaysList[day])
         
-        // Perform segue
-        performSegueWithIdentifier("showRecords", sender: nil)
+        if dailyRecordsList == nil {
+            // Perform segue
+            performSegueWithIdentifier("addRegister", sender: nil)
+        }
+        else {
+            // Perform segue
+            performSegueWithIdentifier("showRecords", sender: nil)
+        }
     }
     
     func presentedDateUpdated(date: CVDate) {
@@ -325,6 +331,9 @@ extension CalendarViewController: CVCalendarViewDelegate {
         // get registries for this day
         var listRegistries = getDottedRegistries(day, amount: numRegistries)
         
+        if listRegistries == nil {
+            println("Wasn't expecting empty list for a day that needs dot! Will crash...")
+        }
         
         
         // Check registry for each dotted day
