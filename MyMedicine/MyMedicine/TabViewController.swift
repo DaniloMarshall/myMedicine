@@ -15,6 +15,9 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         
         self.delegate = self
         
+        self.navigationController!.navigationBar.tintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+
+        
 
         // Do any additional setup after loading the view.
     }

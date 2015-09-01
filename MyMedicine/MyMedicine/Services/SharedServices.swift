@@ -33,14 +33,14 @@ class SharedServices {
         //println("\(defaults)")
         if let hasDefaultData : Bool = defaults.objectForKey("hasDefaultData") as? Bool {
             if hasDefaultData {
-                print("hasDefaultData - true\n")
                 // Case where data was already saved at least once
+                //print("hasDefaultData - true\n")
                 defaults.setObject(true, forKey:"hasDefaultData")
                 defaults.synchronize()
             }
             else {
-                print("hasDefaultData - false\n")
                 // Case where data was never set
+                //print("hasDefaultData - false\n")
                 CreateFakeData()
                 defaults.setObject(true, forKey:"hasDefaultData")
                 defaults.synchronize()
@@ -48,8 +48,7 @@ class SharedServices {
         }
         else {
             // Case where data was never set
-            print("hasDefaultData - false\n")
-            // Case where data was never set
+            //print("hasDefaultData - false\n")
             CreateFakeData()
             defaults.setObject(true, forKey:"hasDefaultData")
             defaults.synchronize()
