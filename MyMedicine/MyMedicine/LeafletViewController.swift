@@ -22,7 +22,7 @@ class LeafletViewController: UIViewController {
         if let object: AnyObject = currentLeaflet{
         
         //load the leaflet pdf
-        var pdfLoc = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("airSalompas", ofType:"pdf")!) //replace PDF_file with your pdf die name
+        var pdfLoc = NSURL(fileURLWithPath:NSBundle.mainBundle().pathForResource("airSalompas", ofType:"pdf")!)
         var request = NSURLRequest(URL: pdfLoc!);
         self.leafletView?.loadRequest(request);
         

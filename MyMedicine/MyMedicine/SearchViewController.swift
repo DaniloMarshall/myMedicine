@@ -156,7 +156,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         controller.searchBar.showsCancelButton = false //dismiss cancel button
-        controller.searchBar.text = ""  //clears text field
+        //controller.searchBar.text = ""  //clears text field
         
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
@@ -292,7 +292,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
     //prepare for segue
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+//        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
         
         
             performSegueWithIdentifier("segueSearch", sender: indexPath)
