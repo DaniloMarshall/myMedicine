@@ -18,7 +18,7 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
  //   @IBOutlet weak var daysOutSwitch: UISwitch!
     
-    var shouldShowDaysOut : Bool = true
+    var shouldShowDaysOut : Bool = false
     var animationFinished : Bool = true
     
     
@@ -30,6 +30,7 @@ class CalendarViewController: UIViewController {
     var currentMonthRecordsList : [Registry]! = nil
     var currentMonthDaysList : [Int] = [Int](count: daysArraySize, repeatedValue: 0)
     
+    var didChangeMonth : Bool = false
     
     var currentMonthDate : NSDate = NSDate()
     let currentCalendar = NSCalendar.currentCalendar()
@@ -247,22 +248,28 @@ extension CalendarViewController: CVCalendarViewDelegate {
     }
     
     func didSelectDayView(dayView: CVCalendarDayView) {
-        let date = dayView.date // return the day tapped
-        println("\(calendarView.presentedDate.commonDescription) is selected!")
-        
-        // Check if there is any record on date selected
-        let day = dayView.date.day
-        
-        // get registries for this day
-        dailyRecordsList = getDottedRegistries(day, amount: currentMonthDaysList[day])
-        
-        if dailyRecordsList == nil {
-            // Perform segue
-            performSegueWithIdentifier("addRegister", sender: nil)
+        // Need to check this since this function is selected when month is changed and we don't want to add a new registry or the registries history everytime month is changed on calendar
+        if didChangeMonth {
+            didChangeMonth = false
         }
         else {
-            // Perform segue
-            performSegueWithIdentifier("showRecords", sender: nil)
+            let date = dayView.date // return the day tapped
+            println("\(calendarView.presentedDate.commonDescription) is selected!")
+            
+            // Check if there is any record on date selected
+            let day = dayView.date.day
+            
+            // get registries for this day
+            dailyRecordsList = getDottedRegistries(day, amount: currentMonthDaysList[day-1])
+            
+            if dailyRecordsList == nil {
+                // Perform segue
+                performSegueWithIdentifier("addRegister", sender: nil)
+            }
+            else {
+                // Perform segue
+                performSegueWithIdentifier("showRecords", sender: nil)
+            }
         }
     }
     
@@ -413,6 +420,7 @@ extension CalendarViewController {
         self.currentMonthDate = self.currentMonthDate.dateByAddingMonths(-1)!
         //currentMonthRecordsList = RegistryServices.getRegistryListFromCurrentMonth(self.currentMonthDate)
         updateMonthList()
+        didChangeMonth = true
         
         calendarView.loadPreviousView()
     }
@@ -422,6 +430,7 @@ extension CalendarViewController {
         self.currentMonthDate = self.currentMonthDate.dateByAddingMonths(1)!
         //currentMonthRecordsList = RegistryServices.getRegistryListFromCurrentMonth(self.currentMonthDate)
         updateMonthList()
+        didChangeMonth = true
         
         calendarView.loadNextView()
     }
