@@ -50,6 +50,7 @@ class CalendarViewController: UIViewController {
         // Commit frames' updates
         self.calendarView.commitCalendarViewUpdate()
         self.calendarMenuView.commitMenuViewUpdate()
+        
     }
     
     override func viewDidLoad() {

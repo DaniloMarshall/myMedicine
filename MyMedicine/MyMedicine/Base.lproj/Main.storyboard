@@ -41,6 +41,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgH-O2-Kfe">
                                         <rect key="frame" x="5" y="8" width="222" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="tintColor" red="1" green="0.97263960709584907" blue="0.99490255173986375" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="&lt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -51,6 +52,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LIQ-F3-USx">
                                         <rect key="frame" x="374" y="8" width="221" height="48"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="tintColor" red="1" green="0.97263960709999997" blue="0.99490255169999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="&gt;">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -64,11 +66,11 @@
                                             <constraint firstAttribute="width" secondItem="b1D-CC-W7b" secondAttribute="height" multiplier="137:32" id="OhP-8r-8yq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="1" green="0.97263960709999997" blue="0.99490255169999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.89019607840000003" green="0.89411764709999997" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.16862745098039217" green="0.67843137254901964" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="LIQ-F3-USx" firstAttribute="leading" secondItem="b1D-CC-W7b" secondAttribute="trailing" constant="5" id="30C-5Y-lxN"/>
                                     <constraint firstItem="b1D-CC-W7b" firstAttribute="leading" secondItem="LgH-O2-Kfe" secondAttribute="trailing" constant="5" id="9th-Lc-fgB"/>
@@ -83,31 +85,35 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdB-io-jQc" userLabel="Calendar View" customClass="CVCalendarView" customModule="MyMedicine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="128" width="600" height="360"/>
-                                <color key="backgroundColor" red="0.89019607840000003" green="0.89411764709999997" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-li-8Ov" userLabel="Buttons Container">
                                 <rect key="frame" x="0.0" y="488" width="600" height="64"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2R-Ht-1Qm" userLabel="Adicionar">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="64"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Adicionar">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addNewRecord:" destination="fKL-jw-KJx" eventType="touchUpInside" id="e99-xs-JUp"/>
-                                            <segue destination="J30-N0-jHz" kind="show" identifier="addRegister" id="6ek-DU-sSG"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eax-5D-Idm" userLabel="Histórico">
                                         <rect key="frame" x="300" y="0.0" width="300" height="64"/>
+                                        <color key="backgroundColor" red="0.16862745098039217" green="0.67843137254901964" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Histórico">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="showRecords:" destination="fKL-jw-KJx" eventType="touchUpInside" id="lDz-SM-jGw"/>
                                             <segue destination="8bb-SU-tfb" kind="show" identifier="showRegister" id="HW9-lB-n8m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2R-Ht-1Qm" userLabel="Adicionar">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="64"/>
+                                        <color key="backgroundColor" red="0.16862745098039217" green="0.67843137254901964" blue="0.62352941176470589" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Adicionar">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addNewRecord:" destination="fKL-jw-KJx" eventType="touchUpInside" id="e99-xs-JUp"/>
+                                            <segue destination="J30-N0-jHz" kind="show" identifier="addRegister" id="6ek-DU-sSG"/>
                                         </connections>
                                     </button>
                                 </subviews>
