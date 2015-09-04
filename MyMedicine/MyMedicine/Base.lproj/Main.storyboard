@@ -152,7 +152,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Registros" id="K5o-ws-HKM" userLabel="Registros"/>
+                    <tabBarItem key="tabBarItem" title="Registros" image="1441346721_calendar" id="K5o-ws-HKM" userLabel="Registros"/>
                     <connections>
                         <outlet property="calendarMenuView" destination="AKt-eF-4vp" id="FTW-Ap-MKn"/>
                         <outlet property="calendarView" destination="jdB-io-jQc" id="JQp-10-6as"/>
@@ -299,8 +299,9 @@
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Selecione o tipo de registro:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwC-WH-j3L">
                                 <rect key="frame" x="16" y="72" width="267" height="71"/>
+                                <color key="backgroundColor" red="0.18823529410000001" green="0.72941176470000002" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -383,7 +384,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="Jba-YI-scc"/>
+                    <tabBarItem key="tabBarItem" title="Busca" image="1441346716_search" id="Jba-YI-scc"/>
                     <connections>
                         <outlet property="resultsTable" destination="f0K-Rn-b9O" id="dYD-mg-cVw"/>
                         <outlet property="searchDisplayController" destination="3UQ-cB-dfi" id="Fp2-P6-7rS"/>
@@ -622,6 +623,10 @@
             <point key="canvasLocation" x="952" y="482"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1441346716_search" width="32" height="32"/>
+        <image name="1441346721_calendar" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tkH-2V-peK"/>
     </inferredMetricsTieBreakers>
