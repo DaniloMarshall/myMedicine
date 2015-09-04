@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QaV-q5-3RO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="QaV-q5-3RO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -169,19 +169,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOz-ua-Xtz">
-                                <rect key="frame" x="0.0" y="64" width="600" height="191"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVY-FM-Kfh">
+                                <rect key="frame" x="268" y="513" width="65" height="30"/>
+                                <state key="normal" title="Adicionar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRegistry:" destination="J30-N0-jHz" eventType="touchUpInside" id="3Wq-iK-FZS"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nVg-cm-JRO">
+                                <rect key="frame" x="0.0" y="64" width="600" height="444"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="QOz-ua-Xtz" secondAttribute="height" multiplier="600:191" id="59c-vh-1PS"/>
-                                    <constraint firstAttribute="width" constant="600" id="6SH-3x-JbY"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mz3-l1-KaB">
-                                <rect key="frame" x="0.0" y="243" width="600" height="300"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="addRegistryCell" id="xhs-Zb-GCi" customClass="AddRegisterTableViewCell" customModule="MyMedicine" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xhs-Zb-GCi" id="3m3-Lr-EY7">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NameRegistry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z7-XM-PFA">
+                                                    <rect key="frame" x="8" y="8" width="370" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TypeRegistry" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joz-fO-9c9">
+                                                    <rect key="frame" x="423" y="8" width="169" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="9Z7-XM-PFA" id="k0Y-HF-Qmm"/>
+                                            <outlet property="typeLabel" destination="joz-fO-9c9" id="Pe2-ab-iam"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8n-zq-OM9">
+                                <rect key="frame" x="0.0" y="108" width="600" height="397"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Epv-XU-JTy">
-                                        <rect key="frame" x="164" y="35" width="295" height="162"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Anotações..." translatesAutoresizingMaskIntoConstraints="NO" id="vK5-m5-lSb">
+                                        <rect key="frame" x="8" y="380" width="584" height="328"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Epv-XU-JTy">
+                                        <rect key="frame" x="180" y="8" width="260" height="160"/>
                                         <date key="date" timeIntervalSinceReferenceDate="462465641.73085201">
                                             <!--2015-08-28 14:40:41 +0000-->
                                         </date>
@@ -189,51 +226,109 @@
                                             <action selector="datePickerAction:" destination="J30-N0-jHz" eventType="valueChanged" id="AMu-II-Hec"/>
                                         </connections>
                                     </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVY-FM-Kfh">
-                                        <rect key="frame" x="268" y="270" width="65" height="30"/>
-                                        <state key="normal" title="Adicionar">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Evento é diário?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-OZ-qW8">
+                                        <rect key="frame" x="8" y="183" width="146" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Seg-bg-gLN" userLabel="DailySwitch">
+                                        <rect key="frame" x="162" y="183" width="51" height="31"/>
                                         <connections>
-                                            <action selector="addRegistry:" destination="J30-N0-jHz" eventType="touchUpInside" id="3Wq-iK-FZS"/>
+                                            <action selector="switchAction:" destination="J30-N0-jHz" eventType="valueChanged" id="Kuo-Bu-AVI"/>
                                         </connections>
-                                    </button>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Se repete em um período fixo?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pr7-Oh-aos">
+                                        <rect key="frame" x="8" y="228" width="146" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vAY-YX-r0I" userLabel="FixedPeriodSwitch">
+                                        <rect key="frame" x="162" y="234" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchAction:" destination="J30-N0-jHz" eventType="valueChanged" id="H41-E9-YcV"/>
+                                        </connections>
+                                    </switch>
+                                    <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jhZ-bv-UF6" userLabel="DaysOffSwitch">
+                                        <rect key="frame" x="180" y="281" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchAction:" destination="J30-N0-jHz" eventType="valueChanged" id="0Pg-1o-Sf3"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tem dias sem uso?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp8-yw-xVh">
+                                        <rect key="frame" x="8" y="281" width="164" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PCm-kc-h80" userLabel="FixedPeriodView">
+                                        <rect key="frame" x="311" y="183" width="281" height="89"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantidade de dias do período?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmh-di-7wk">
+                                                <rect key="frame" x="8" y="19" width="147" height="62"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQm-DJ-FUo">
+                                                <rect key="frame" x="163" y="35" width="97" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fcJ-WW-rku" userLabel="DaysOffView">
+                                        <rect key="frame" x="311" y="281" width="281" height="89"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="elA-Ds-fb9">
+                                                <rect key="frame" x="215" y="-1" width="58" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Número de dias de uso?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilm-N2-ZTf">
+                                                <rect key="frame" x="8" y="0.0" width="188" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pq8-vJ-F5W">
+                                                <rect key="frame" x="215" y="51" width="58" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Número de dias sem uso?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh8-lZ-b1L">
+                                                <rect key="frame" x="8" y="52" width="201" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="Epv-XU-JTy" secondAttribute="centerX" constant="-11.5" id="4ak-2T-1OH"/>
-                                    <constraint firstAttribute="width" constant="600" id="9j2-iQ-fMF"/>
-                                    <constraint firstItem="Epv-XU-JTy" firstAttribute="width" secondItem="mz3-l1-KaB" secondAttribute="height" multiplier="59:60" id="e4O-d1-KlB"/>
-                                    <constraint firstAttribute="width" secondItem="mz3-l1-KaB" secondAttribute="height" multiplier="2:1" id="fIF-oP-XXa"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdc-OZ-qW8">
-                                <rect key="frame" x="279" y="459" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="GGz-ab-SUj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="mz3-l1-KaB" secondAttribute="centerX" id="0nU-G2-nGI"/>
-                            <constraint firstItem="lml-CA-3v6" firstAttribute="top" secondItem="mz3-l1-KaB" secondAttribute="bottom" constant="8" symbolic="YES" id="2d4-Ou-72a"/>
-                            <constraint firstAttribute="centerX" secondItem="QOz-ua-Xtz" secondAttribute="centerX" id="8Be-IW-SjR"/>
-                            <constraint firstItem="mz3-l1-KaB" firstAttribute="leading" secondItem="QOz-ua-Xtz" secondAttribute="trailing" constant="-600" id="IsH-ww-jN4"/>
-                            <constraint firstItem="lml-CA-3v6" firstAttribute="top" secondItem="Vdc-OZ-qW8" secondAttribute="bottom" constant="71" id="c3c-Qw-uuN"/>
-                            <constraint firstItem="mz3-l1-KaB" firstAttribute="centerX" secondItem="Vdc-OZ-qW8" secondAttribute="centerX" id="oI5-S4-G5e"/>
-                            <constraint firstItem="QOz-ua-Xtz" firstAttribute="top" secondItem="L34-pw-nBp" secondAttribute="bottom" id="uUP-ik-h01"/>
-                            <constraint firstItem="Vdc-OZ-qW8" firstAttribute="top" secondItem="Epv-XU-JTy" secondAttribute="bottom" constant="19" id="vic-6b-C2g"/>
-                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="addBtn" destination="pVY-FM-Kfh" id="GiV-2J-vyH"/>
+                        <outlet property="dailySwitch" destination="Seg-bg-gLN" id="vkJ-np-Ddi"/>
                         <outlet property="datePicker" destination="Epv-XU-JTy" id="aFd-zE-cal"/>
                         <outlet property="datePickerAction" destination="Epv-XU-JTy" id="VT9-tn-IRR"/>
+                        <outlet property="daysOffSwitch" destination="jhZ-bv-UF6" id="BcE-32-YJQ"/>
+                        <outlet property="daysOffTxtField" destination="Pq8-vJ-F5W" id="Epf-Hc-YgM"/>
+                        <outlet property="daysOffView" destination="fcJ-WW-rku" id="vh3-tT-hJ1"/>
+                        <outlet property="daysOnTxtField" destination="elA-Ds-fb9" id="6cI-Jm-9mb"/>
+                        <outlet property="fixedPeriodSwitch" destination="vAY-YX-r0I" id="puq-Wd-F1o"/>
+                        <outlet property="fixedPeriodTxtField" destination="EQm-DJ-FUo" id="K0F-IJ-hEg"/>
+                        <outlet property="fixedPeriodView" destination="PCm-kc-h80" id="0rT-xM-UYQ"/>
+                        <outlet property="noteTxtView" destination="vK5-m5-lSb" id="Qfm-Q2-jNQ"/>
+                        <outlet property="scrollView" destination="q8n-zq-OM9" id="Tl6-ob-JFG"/>
                         <outlet property="searchDisplayController" destination="jaw-nI-oix" id="aLL-eO-NlL"/>
                         <outlet property="selectedDate" destination="Vdc-OZ-qW8" id="M2B-07-O7E"/>
+                        <outlet property="tableView" destination="nVg-cm-JRO" id="X9V-Hr-Si0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4v-TK-gJK" userLabel="First Responder" sceneMemberID="firstResponder"/>

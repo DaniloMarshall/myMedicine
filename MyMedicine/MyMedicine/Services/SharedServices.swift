@@ -9,6 +9,11 @@
 import Foundation
 import UIKit
 
+struct TableElement {
+    let name : String
+    let type : String
+}
+
 class SharedServices {
     // Queue used for all DB operations
     static let OperationQueue : NSOperationQueue = NSOperationQueue()
@@ -218,6 +223,7 @@ class SharedServices {
         return newList
     }
     
+    /*
     static func getAllElementsList() -> Dictionary<String,TypeRegistry> {
         var newDict = Dictionary<String,TypeRegistry>()
         
@@ -238,5 +244,28 @@ class SharedServices {
         }
         
         return newDict
+    }
+    */
+    
+    static func getAllElementsList() -> [TableElement] {
+        var elementList : [TableElement]! = nil
+        
+        let symptomsList = RetrieveSavedSymptoms()
+        let specialistList = RetrieveSavedSpecialists()
+        let medicinesList = RetrieveSavedMedicines()
+        
+        for symptom in symptomsList {
+            elementList.append(TableElement(name: symptom.name, type: "Sintoma"))
+        }
+        
+        for specialist in specialistList {
+            elementList.append(TableElement(name: specialist.name, type: "Especialista"))
+        }
+        
+        for medicine in medicinesList {
+            elementList.append(TableElement(name: medicine.name, type: "Medicamento"))
+        }
+        
+        return elementList
     }
 }

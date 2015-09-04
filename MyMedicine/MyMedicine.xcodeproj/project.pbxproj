@@ -26,6 +26,7 @@
 		7640C70E1B8FE9260019D28D /* SharedServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C7091B8FE9260019D28D /* SharedServices.swift */; };
 		7640C70F1B8FE9260019D28D /* SpecialistServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C70A1B8FE9260019D28D /* SpecialistServices.swift */; };
 		7640C7101B8FE9260019D28D /* SymptomServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C70B1B8FE9260019D28D /* SymptomServices.swift */; };
+		7640C7131B990AC70019D28D /* AddRegisterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7640C7121B990AC70019D28D /* AddRegisterTableViewCell.swift */; };
 		76E08E421B8B633B0065FA1C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		76E65C6A1B821A4300311F20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E65C691B821A4300311F20 /* AppDelegate.swift */; };
 		76E65C6F1B821A4300311F20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E65C6D1B821A4300311F20 /* Main.storyboard */; };
@@ -100,6 +101,7 @@
 		7640C7091B8FE9260019D28D /* SharedServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedServices.swift; sourceTree = "<group>"; };
 		7640C70A1B8FE9260019D28D /* SpecialistServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecialistServices.swift; sourceTree = "<group>"; };
 		7640C70B1B8FE9260019D28D /* SymptomServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomServices.swift; sourceTree = "<group>"; };
+		7640C7121B990AC70019D28D /* AddRegisterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRegisterTableViewCell.swift; sourceTree = "<group>"; };
 		76E65C641B821A4300311F20 /* MyMedicine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMedicine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E65C681B821A4300311F20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76E65C691B821A4300311F20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				85F3B2691B8E008E00583284 /* ResultsTableCell.swift */,
+				7640C7121B990AC70019D28D /* AddRegisterTableViewCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				7640C7041B8FE91E0019D28D /* Specialist.swift in Sources */,
 				77E7B99B1B8F40A3003976E5 /* CVCalendarTouchController.swift in Sources */,
 				77E7B9941B8F40A3003976E5 /* CVCalendarDayView.swift in Sources */,
+				7640C7131B990AC70019D28D /* AddRegisterTableViewCell.swift in Sources */,
 				85F6E3891B90D53800D04431 /* TabViewController.swift in Sources */,
 				77E7B99A1B8F40A3003976E5 /* CVCalendarMonthView.swift in Sources */,
 				77E7B99D1B8F40A3003976E5 /* CVCalendarViewAnimator.swift in Sources */,

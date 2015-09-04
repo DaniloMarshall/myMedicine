@@ -45,11 +45,6 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
         symptomsList = SharedServices.RetrieveSavedSymptoms()
         medicineList = SharedServices.RetrieveSavedMedicines()
         
-//        //test if list has the right values
-//        for medicine in medicineList {
-//            println(medicine.name)
-//        }
-        
         super.viewDidLoad()
         
         //adding target to seg control change

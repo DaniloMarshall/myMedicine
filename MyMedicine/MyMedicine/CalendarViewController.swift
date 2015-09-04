@@ -55,6 +55,9 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //calls DB
+        SharedServices.CheckSavedData()
+        
         monthLabel.text = CVDate(date: NSDate()).globalDescription
 
         // Appearance delegate [Unnecessary]
